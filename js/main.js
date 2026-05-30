@@ -1,5 +1,8 @@
 // DPTC Main JavaScript
 
+// Show all fade-in elements immediately (no animation delay)
+document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -10,9 +13,9 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileClose = document.getElementById('mobileClose');
-hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-mobileMenu.querySelectorAll('a').forEach(link => {
+if (hamburger) hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+if (mobileClose) mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => mobileMenu.classList.remove('open'));
 });
 
@@ -34,21 +37,9 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Scroll fade-in
-const fadeEls = document.querySelectorAll('.fade-in');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12 });
-fadeEls.forEach(el => observer.observe(el));
-
 // Contact form
 const contactForm = document.getElementById('contactForm');
-contactForm && contactForm.addEventListener('submit', e => {
+if (contactForm) contactForm.addEventListener('submit', e => {
   e.preventDefault();
   const btn = contactForm.querySelector('.form-submit');
   btn.textContent = 'Message Sent!';
@@ -62,10 +53,10 @@ contactForm && contactForm.addEventListener('submit', e => {
 
 // Subscribe form
 const subscribeForm = document.getElementById('subscribeForm');
-subscribeForm && subscribeForm.addEventListener('submit', e => {
+if (subscribeForm) subscribeForm.addEventListener('submit', e => {
   e.preventDefault();
   const btn = subscribeForm.querySelector('button');
-  btn.textContent = 'v';
+  btn.textContent = 'Done!';
   setTimeout(() => { btn.textContent = '>'; subscribeForm.reset(); }, 2000);
 });
 
@@ -74,7 +65,5 @@ const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const today = days[new Date().getDay()];
 document.querySelectorAll('.hours-table tr').forEach(row => {
   const dayCell = row.querySelector('td:first-child');
-  if (dayCell && dayCell.textContent.trim() === today) {
-    row.classList.add('today');
-  }
+  if (dayCell && dayCell.textContent.trim() === today) row.classList.add('today');
 });
