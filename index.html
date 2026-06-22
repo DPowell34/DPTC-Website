@@ -1,392 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DPTC - Outsourced Digital Department for Veteran-Owned Businesses | Orlando, FL</title>
-    <meta name="description" content="DPTC is the outsourced digital department for veteran-owned small businesses. We handle your website, email, security, and marketing on a monthly basis - so you can focus on your mission." />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.dpowelltc.com/" />
-    <meta name="author" content="David Powell Tech Consulting" />
-    <meta name="theme-color" content="#0a0a0a" />
-    <meta name="keywords" content="outsourced digital department, veteran-owned business, web design, website maintenance, digital marketing, managed hosting, Orlando web design" />
-    <link rel="icon" type="image/png" href="dptc-logo.png" />
-    <link rel="shortcut icon" type="image/png" href="dptc-logo.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="dptc-logo.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="dptc-logo.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="dptc-logo.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="DPTC - David Powell Tech Consulting" />
-    <meta property="og:title" content="DPTC - Your Outsourced Digital Department for Veteran-Owned Businesses" />
-    <meta property="og:description" content="DPTC is the outsourced digital department for veteran-owned small businesses - website, email, security, and marketing managed every month." />
-    <meta property="og:url" content="https://www.dpowelltc.com/" />
-    <meta property="og:image" content="https://www.dpowelltc.com/dptc-logo.png" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="DPTC - Your Outsourced Digital Department for Veteran-Owned Businesses" />
-    <meta name="twitter:description" content="Your dedicated digital team - website, email, security, and marketing managed monthly. Veteran-owned." />
-    <meta name="twitter:image" content="https://www.dpowelltc.com/dptc-logo.png" />
-    <script type="application/ld+json">
-      {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "David Powell Tech Consulting (DPTC)",
-      "description": "Outsourced digital department for veteran-owned small businesses, providing website, email, security, and marketing management.",
-      "url": "https://www.dpowelltc.com/",
-      "telephone": "+1-407-795-5538",
-      "email": "dapowell1@dpowelltc.com",
-      "image": "https://www.dpowelltc.com/dptc-logo.png",
-      "founder": { "@type": "Person", "name": "David Powell" },
-      "address": { "@type": "PostalAddress", "addressLocality": "Orlando", "addressRegion": "FL", "addressCountry": "US" },
-      "areaServed": "US",
-      "priceRange": "$$"
-      }
-    </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/styles.css?v=4" />
-  <style>
-      /* Pricing Section */
-      #pricing { background: var(--bg-dark, #0a0a0a); padding: 80px 0; }
-      .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 48px; }
-      .pricing-card { background: var(--card-bg, #111); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 40px 32px; position: relative; transition: transform 0.3s, box-shadow 0.3s; }
-      .pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-      .pricing-card.featured { border-color: var(--accent, #d4a017); box-shadow: 0 0 0 2px var(--accent, #d4a017); }
-      .pricing-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent, #d4a017); color: #000; font-size: 0.75rem; font-weight: 800; padding: 4px 18px; border-radius: 20px; white-space: nowrap; letter-spacing: 0.08em; text-transform: uppercase; }
-      .pricing-tier { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent, #d4a017); margin-bottom: 8px; }
-      .pricing-name { font-family: var(--font-heading, 'Montserrat', sans-serif); font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 6px; }
-      .pricing-tagline { font-size: 0.95rem; color: rgba(255,255,255,0.55); margin-bottom: 28px; }
-      .pricing-price { margin-bottom: 28px; }
-      .pricing-price .amount { font-family: var(--font-heading, 'Montserrat', sans-serif); font-size: 2.8rem; font-weight: 900; color: #fff; }
-      .pricing-price .period { font-size: 1rem; color: rgba(255,255,255,0.5); margin-left: 4px; }
-      .pricing-price .note { display: block; font-size: 0.82rem; color: rgba(255,255,255,0.4); margin-top: 6px; }
-      .pricing-features { list-style: none; padding: 0; margin: 0 0 32px; }
-      .pricing-features li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.9rem; color: rgba(255,255,255,0.8); }
-      .pricing-features li:last-child { border-bottom: none; }
-      .pricing-features li i { color: var(--accent, #d4a017); margin-top: 3px; flex-shrink: 0; }
-      .pricing-cta { display: block; text-align: center; padding: 14px 24px; border-radius: 8px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s; }
-      .pricing-cta.primary { background: var(--accent, #d4a017); color: #000; }
-      .pricing-cta.primary:hover { background: #c49010; }
-      .pricing-cta.outline { border: 2px solid rgba(255,255,255,0.25); color: #fff; }
-      .pricing-cta.outline:hover { border-color: var(--accent, #d4a017); color: var(--accent, #d4a017); }
-      .pricing-hook { text-align: center; margin-top: 48px; background: rgba(212,160,23,0.08); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px; padding: 32px; }
-      .pricing-hook h3 { color: var(--accent, #d4a017); margin-bottom: 10px; font-size: 1.4rem; }
-      .pricing-hook p { color: rgba(255,255,255,0.7); max-width: 620px; margin: 0 auto; }
-    </style>
-  </head>
-  <body>
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-close" id="mobileClose">&#x2715;</button>button>
-        <a href="#hero">Home</a>a><a href="#about">About</a>a><a href="#pricing">Plans</a>a><a href="#services">Services</a>a><a href="#reviews">Reviews</a>a><a href="#contact">Contact</a>a>
-        <a href="tel:+14077955538" style="color:var(--accent)">407.795.5538</a>a>
-    </div>div>
-    <nav id="navbar">
-        <div class="container nav-inner">
-              <a href="#hero" class="nav-logo">
-                      <img src="header-logo.jpg" alt="David Powell" />
-                      <div><span class="nav-logo-text">DPTC</span>span><span class="nav-logo-sub">David Powell Tech Consulting</span>span></div>
-              </a>a>
-            <ul class="nav-links">
-              <li><a href="#hero">Home</a>a></li><li><a href="#about">About</a>a></li><li><a href="#pricing">Plans</a>a></li><li><a href="#services">Services</a>a></li><li><a href="#reviews">Reviews</a>a></li><li><a href="#contact">Contact</a>a></li>
-            </ul>ul>
-            <div class="nav-actions">
-                  <a href="tel:+14077955538" class="nav-phone">407.795.5538</a>a>
-                  <a href="#contact" class="btn btn-primary nav-cta">Get Started</a>a>
-            </div>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-        </div>
-    </nav>nav>
-  <section id="hero">
-    <div class="container">
-        <div class="hero-content">
-              <div class="hero-text animate-in">
-                      <div class="hero-badge"><i class="fas fa-shield-halved"></i>i> Veteran-Owned &amp; Operated</div>
-                      <h1>Your <span class="accent-text">Outsourced Digital Department</span>span> — Built for Veteran-Owned Businesses</h1>
-                      <p class="hero-subtitle">Stop paying for one-time projects. DPTC becomes your dedicated digital team — managing your website, email, security, and marketing every single month, with military-grade accountability.</p>p>
-                      <div class="hero-actions">
-                                <a href="#pricing" class="btn btn-primary btn-lg">See Our Plans</a>a>
-                                <a href="#contact" class="btn btn-outline btn-lg">Get a Free Consultation</a>a>
-                      </div>
-                      <div class="hero-stats">
-                                <div class="hero-stat"><span class="stat-num">10+</span><span class="stat-label">Years Experience</span></div>
-                                <div class="hero-stat"><span class="stat-num">10+</span><span class="stat-label">Businesses Served</span></div>
-                                <div class="hero-stat"><span class="stat-num">98%</span><span class="stat-label">Client Retention</span></div>
-                      </div>
-              </div>
-              <div class="hero-image animate-in delay-1">
-                      <div class="hero-portrait-frame">
-                                <img src="dptc-logo.png" alt="DPTC – David Powell Tech Consulting" class="hero-portrait" />
-                                <div class="portrait-badge">
-                                            <i class="fas fa-medal"></i>i>
-                                            <div><strong>David Powell</strong><span>Founder &amp; CEO</span></div>
-                                </div>
-                      </div>
-              </div>
-        </div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary SEO -->
+<title>DPTC | Veteran-Owned IT Consulting &amp; Web Development in Orlando, FL</title>
+<meta name="description" content="DPTC (David Powell Tech Consulting) is a veteran-owned IT firm in Orlando, FL offering web development, cybersecurity, IT consulting, and digital transformation services nationwide. Get a free consultation.">
+<meta name="keywords" content="IT consulting Orlando, web development Orlando, veteran-owned IT company, cybersecurity services, digital transformation, e-commerce website, WordPress maintenance, small business IT support, DPTC, David Powell Tech Consulting">
+<meta name="author" content="David Powell Tech Consulting (DPTC)">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#0d1526">
+<meta name="geo.region" content="US-FL">
+<meta name="geo.placename" content="Orlando, Florida">
+<link rel="canonical" href="https://dpowelltc.com/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="David Powell Tech Consulting (DPTC)">
+<meta property="og:url" content="https://dpowelltc.com/">
+<meta property="og:title" content="DPTC | Veteran-Owned IT Consulting &amp; Web Development in Orlando, FL">
+<meta property="og:description" content="Expert IT consulting, web development, cybersecurity, and digital transformation services delivered with military precision. Serving Orlando &amp; nationwide.">
+<meta property="og:image" content="https://dpowelltc.com/dptc-logo.png">
+<meta property="og:image:alt" content="DPTC – David Powell Tech Consulting logo">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DPTC | Veteran-Owned IT Consulting &amp; Web Development in Orlando, FL">
+<meta name="twitter:description" content="Expert IT consulting, web development, cybersecurity, and digital transformation services delivered with military precision. Serving Orlando &amp; nationwide.">
+<meta name="twitter:image" content="https://dpowelltc.com/dptc-logo.png">
+<meta name="twitter:image:alt" content="DPTC – David Powell Tech Consulting logo">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Structured Data: Organization / Local Business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://dpowelltc.com/#business",
+  "name": "David Powell Tech Consulting (DPTC)",
+  "alternateName": "DPTC",
+  "url": "https://dpowelltc.com/",
+  "logo": "https://dpowelltc.com/dptc-logo.png",
+  "image": "https://dpowelltc.com/dptc-logo.png",
+  "description": "Veteran-owned IT consulting, web development, cybersecurity, and digital transformation firm serving Orlando, Florida and clients nationwide.",
+  "telephone": "+1-407-795-5538",
+  "email": "dapowell1@dpowelltc.com",
+  "priceRange": "$$",
+  "founder": { "@type": "Person", "name": "David Powell", "jobTitle": "Founder & CEO" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Orlando", "addressRegion": "FL", "addressCountry": "US" },
+  "areaServed": [ { "@type": "City", "name": "Orlando" }, { "@type": "Country", "name": "United States" } ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+  ],
+  "sameAs": [ "https://www.facebook.com/profile.php?id=61575631854523", "https://www.linkedin.com/in/davidpowell1128/" ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "3" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "DPTC Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Standard Website" }, "price": "2500", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starter Website Package" }, "price": "999", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce Package" }, "price": "1500", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starter Maintenance" }, "price": "250", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Package" }, "price": "2500", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Logo Design" }, "price": "250", "priceCurrency": "USD" }
+    ]
+  }
+}
+</script>
+
+<!-- Structured Data: Reviews -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "DPTC IT Consulting & Web Development Services",
+  "brand": { "@type": "Brand", "name": "DPTC" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "3" },
+  "review": [
+    { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "author": { "@type": "Person", "name": "Laronda Morris" }, "publisher": { "@type": "Organization", "name": "Facebook" }, "reviewBody": "Great customer service, prompt, professional and reliable service. I promise you will not be disappointed in the service rendered." },
+    { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "author": { "@type": "Person", "name": "Gwendlyn Still" }, "publisher": { "@type": "Organization", "name": "Facebook" }, "reviewBody": "This gentleman is more than qualified to handle any task that you put before him. He's a 10 out of 10 — I highly recommend." },
+    { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "author": { "@type": "Person", "name": "Nathan Pope II" }, "publisher": { "@type": "Organization", "name": "Facebook" }, "reviewBody": "This gentleman is my go to for all my IT needs." }
+  ]
+}
+</script>
+
+<!-- Structured Data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What services does DPTC offer?", "acceptedAnswer": { "@type": "Answer", "text": "DPTC offers web development, e-commerce builds, website maintenance, cybersecurity audits, IT consulting, social media marketing, logo design, PC construction, cloud hosting, and Google Workspace setup." } },
+    { "@type": "Question", "name": "Where is DPTC located?", "acceptedAnswer": { "@type": "Answer", "text": "DPTC is based in Orlando, Florida and serves clients nationwide, with 24/7 emergency support available." } },
+    { "@type": "Question", "name": "Is DPTC veteran-owned?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. DPTC is a veteran-owned and operated business founded by David Powell after serving in the U.S. military, and offers a discounted maintenance plan for military members." } },
+    { "@type": "Question", "name": "How much does a website from DPTC cost?", "acceptedAnswer": { "@type": "Answer", "text": "Website packages start at $999 for a starter site, $1,500 for e-commerce, and $2,500 for a standard multi-page business website. Free consultations are available." } }
+  ]
+}
+</script>
+
+<!-- Structured Data: Breadcrumb / WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "David Powell Tech Consulting (DPTC)",
+  "url": "https://dpowelltc.com/"
+}
+</script>
+<style>
+:root{
+  --primary:#1a2744;
+  --accent:#c9a84c;
+  --accent-light:#e6c97a;
+  --dark:#0d1526;
+  --bg:linear-gradient(135deg,#0d1526 0%,#1a2744 60%,#1e3a6e 100%);
+  --light:#f4f6fa;
+  --white:#ffffff;
+  --gray:#6b7280;
+  --gray-light:#e5e7eb;
+  --text:#1f2937;
+  --transition:all .3s ease;
+  --shadow:0 4px 24px rgba(0,0,0,.3);
+  --shadow-lg:0 8px 40px rgba(0,0,0,.4);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+section[id]{scroll-margin-top:90px}
+body{font-family:'Open Sans',sans-serif;color:var(--white);background:var(--bg);background-attachment:fixed;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:'Montserrat',sans-serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.eyebrow{display:inline-block;color:var(--accent);font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:14px}
+.section-title{font-size:2.4rem;font-weight:800;margin-bottom:18px}
+.section-intro{max-width:640px;color:#c7cdd9;font-size:1.05rem;margin-bottom:48px}
+.center{text-align:center}
+.center .section-intro{margin-left:auto;margin-right:auto}
+
+/* Buttons */
+.btn{display:inline-block;padding:14px 30px;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;border:2px solid transparent;transition:var(--transition)}
+.btn-primary{background:var(--accent);color:var(--dark)}
+.btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.btn-outline{background:transparent;border-color:rgba(255,255,255,.4);color:var(--white)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Navbar */
+header.nav{position:sticky;top:0;z-index:1000;transition:var(--transition);padding:14px 0;background:rgba(13,21,38,.95);backdrop-filter:blur(10px);box-shadow:var(--shadow)}
+header.nav.scrolled{padding:10px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo-badge{width:46px;height:46px;border-radius:10px;background:var(--accent);color:var(--dark);display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem}
+.brand .brand-logo{height:48px;width:auto;max-width:200px;object-fit:contain;display:block;border-radius:6px}
+.brand .brand-text strong{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:1px}
+.brand .brand-text span{font-size:.72rem;color:#aeb6c6;letter-spacing:.5px}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.92rem;color:#e7eaf1;transition:var(--transition);position:relative}
+.nav-links a:hover{color:var(--accent)}
+.nav-actions{display:flex;align-items:center;gap:18px}
+.nav-phone{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--accent);font-size:.95rem}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{width:26px;height:3px;background:var(--white);border-radius:2px;transition:var(--transition)}
+
+/* Mobile drawer */
+.mobile-menu{position:fixed;inset:0;background:rgba(13,21,38,.98);z-index:1100;flex-direction:column;align-items:center;justify-content:center;gap:28px;display:none}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.4rem;color:var(--white)}
+.mobile-menu a:hover{color:var(--accent)}
+.mobile-close{position:absolute;top:24px;right:28px;font-size:2rem;background:none;border:none;color:var(--white);cursor:pointer}
+
+/* Hero */
+#hero{padding:80px 0 90px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.badge-vet{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.4);color:var(--accent);padding:7px 16px;border-radius:30px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+.hero-grid h1{font-size:3.2rem;font-weight:900;margin-bottom:22px}
+.hero-grid h1 .gold{color:var(--accent)}
+.hero-lead{font-size:1.12rem;color:#cdd3df;max-width:560px;margin-bottom:34px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+.hero-stats .stat strong{display:block;font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;color:var(--accent)}
+.hero-stats .stat span{font-size:.85rem;color:#aeb6c6}
+.hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:32px;box-shadow:var(--shadow-lg);text-align:center;backdrop-filter:blur(6px)}
+.hero-card .portrait{width:170px;height:170px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(135deg,#1e3a6e,#0d1526);border:3px solid var(--accent);display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:3rem;color:var(--accent);overflow:hidden}
+.hero-card .portrait img{width:100%;height:100%;object-fit:cover}
+.hero-card h3{font-size:1.4rem;font-weight:800}
+.hero-card .role{color:var(--accent);font-weight:600;font-size:.95rem;margin-top:4px}
+.hero-card .logo-line{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);color:#aeb6c6;font-size:.85rem}
+
+/* About */
+#about{background:rgba(13,21,38,.35)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.about-visual{background:linear-gradient(135deg,#1a2744,#1e3a6e);border-radius:18px;min-height:380px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+.about-visual .mono{font-family:'Montserrat',sans-serif;font-weight:900;font-size:5rem;color:var(--accent);letter-spacing:2px}
+.about-visual img{max-width:72%;height:auto;padding:30px}
+.about-grid p{color:#c7cdd9;margin-bottom:18px}
+.feature-list{list-style:none;margin:26px 0}
+.feature-list li{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;color:#dfe3ec}
+.feature-list .check{flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--dark);display:grid;place-items:center;font-weight:900;font-size:.85rem}
+
+/* Services */
+.filters{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:44px}
+.filter-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#dfe3ec;padding:10px 22px;border-radius:30px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.88rem;cursor:pointer;transition:var(--transition)}
+.filter-btn:hover{border-color:var(--accent);color:var(--accent)}
+.filter-btn.active{background:var(--accent);color:var(--dark);border-color:var(--accent)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.service-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:30px;display:flex;flex-direction:column;transition:var(--transition)}
+.service-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.5);box-shadow:var(--shadow-lg)}
+.service-card .tag{align-self:flex-start;background:rgba(201,168,76,.14);color:var(--accent);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:16px}
+.service-card h3{font-size:1.25rem;font-weight:800;margin-bottom:12px}
+.service-card p{color:#c2c8d4;font-size:.92rem;flex-grow:1;margin-bottom:20px}
+.service-card .price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.8rem;color:var(--accent);margin-bottom:18px}
+.service-card .price small{font-size:.9rem;color:#aeb6c6;font-weight:600}
+.service-card .btn{text-align:center;font-size:.85rem;padding:11px 0;width:100%}
+
+/* Counters */
+#stats{background:linear-gradient(135deg,#0d1526,#1a2744)}
+.counter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.counter strong{display:block;font-family:'Montserrat',sans-serif;font-weight:900;font-size:3.2rem;color:var(--accent)}
+.counter span{color:#cdd3df;font-weight:600;letter-spacing:.5px}
+
+/* Testimonials */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:32px;position:relative}
+.testi-card .quote{font-size:3rem;color:var(--accent);font-family:Georgia,serif;line-height:1;margin-bottom:8px}
+.testi-card p{color:#dfe3ec;font-style:italic;margin-bottom:22px}
+.testi-author{display:flex;align-items:center;gap:14px}
+.testi-author .av{width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--dark);display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-weight:800}
+.testi-author strong{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem}
+.testi-author span{font-size:.82rem;color:#aeb6c6}
+.stars{color:var(--accent);margin-bottom:14px;letter-spacing:2px}
+
+/* Contact */
+#contact{background:rgba(13,21,38,.35)}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px}
+.contact-form{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:36px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{margin-bottom:18px}
+.field label{display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.82rem;margin-bottom:7px;color:#dfe3ec}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(13,21,38,.6);color:var(--white);font-family:'Open Sans',sans-serif;font-size:.95rem}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.field select option{background:#0d1526}
+.contact-info .info-item{display:flex;gap:16px;margin-bottom:26px}
+.contact-info .ic{flex:none;width:48px;height:48px;border-radius:12px;background:rgba(201,168,76,.14);color:var(--accent);display:grid;place-items:center;font-size:1.2rem;font-weight:900;font-family:'Montserrat',sans-serif}
+.contact-info h4{font-size:1rem;margin-bottom:3px}
+.contact-info p,.contact-info a{color:#c7cdd9;font-size:.95rem}
+.hours-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px;margin-top:8px}
+.hours-box h4{margin-bottom:16px;color:var(--accent)}
+.hours-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.92rem;color:#dfe3ec}
+.hours-row:last-child{border:none}
+.emergency{margin-top:14px;text-align:center;color:var(--accent);font-weight:700;font-size:.88rem}
+
+/* Footer */
+footer{background:var(--dark);padding:64px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:44px}
+.footer-brand .brand{margin-bottom:18px}
+.footer-brand p{color:#9aa3b5;font-size:.92rem;max-width:300px}
+.socials{display:flex;gap:12px;margin-top:20px}
+.socials a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.06);display:grid;place-items:center;color:#cdd3df;transition:var(--transition);font-weight:700;font-size:.85rem;font-family:'Montserrat',sans-serif}
+.socials a:hover{background:var(--accent);color:var(--dark)}
+footer h5{font-family:'Montserrat',sans-serif;font-size:1rem;margin-bottom:18px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:10px}
+footer ul a{color:#9aa3b5;font-size:.92rem;transition:var(--transition)}
+footer ul a:hover{color:var(--accent)}
+.newsletter input{width:100%;padding:11px 14px;border-radius:8px 8px 0 0;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);color:var(--white);margin-bottom:0}
+.newsletter button{width:100%;border-radius:0 0 8px 8px;border:none}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;text-align:center;color:#8089a0;font-size:.85rem}
+
+@media(max-width:900px){
+  .nav-links,.nav-phone{display:none}
+  .hamburger{display:flex}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid h1{font-size:2.4rem}
+  .services-grid,.testi-grid{grid-template-columns:1fr}
+  .counter-grid{grid-template-columns:1fr 1fr;gap:36px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .section{padding:70px 0}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .counter-grid,.footer-grid{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="navbar">
+  <nav class="container nav-inner" aria-label="Primary navigation">
+    <a href="#hero" class="brand" aria-label="DPTC – David Powell Tech Consulting home">
+      <img src="dptc-logo.png" class="brand-logo" alt="">
+      <div class="brand-text"><strong>DPTC</strong><span>David Powell Tech Consulting</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:+14077955538" class="nav-phone">407.795.5538</a>
+      <a href="#contact" class="btn btn-primary">Book Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
-  </section>section>
-  <section id="about">
-    <div class="container">
-        <div class="about-grid">
-              <div class="about-image animate-in">
-                      <div class="about-img-wrap">
-                                <img src="header-logo.jpg" alt="David Powell" class="about-portrait" />
-                      </div>
-              </div>
-        </div>
-        <div class="about-text animate-in delay-1">
-              <div class="section-label">About Us</div>
-              <h2>We're Not a Website Shop. We're Your <span class="accent-text">Digital Department.</span></h2>
-              <p>David Powell founded DPTC after serving in the U.S. military, bringing the same commitment to excellence, integrity, and mission success to every client engagement. We specialize in serving veteran-owned small businesses that need a reliable digital partner — not just a vendor who disappears after launch.</p>
-              <p>When you partner with DPTC, you get an entire outsourced digital team handling your online presence end-to-end: website, email infrastructure, cybersecurity, content, and marketing — all under one monthly retainer.</p>
-              <div class="about-features">
-                      <div class="about-feature"><i class="fas fa-check-circle"></i>i><span>Long-term partner, not a one-time vendor</span></div>
-                      <div class="about-feature"><i class="fas fa-check-circle"></i>i><span>Transparent monthly pricing with no hidden fees</span></div>
-                      <div class="about-feature"><i class="fas fa-check-circle"></i>i><span>Dedicated support and proactive monthly reporting</span></div>
-                      <div class="about-feature"><i class="fas fa-check-circle"></i>i><span>Focused on veteran-owned small business success</span></div>
-              </div>
-              <a href="#pricing" class="btn btn-primary">See Our Plans</a>a>
-        </div>
+  </nav>
+</header>
+
+<main>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close">&times;</button>
+  <a href="#hero">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:+14077955538" style="color:var(--accent)">407.795.5538</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge-vet">★ Veteran-Owned &amp; Operated</span>
+      <h1>Technology Solutions with <span class="gold">Military Precision</span></h1>
+      <p class="hero-lead">DPTC delivers expert IT consulting, web development, cybersecurity, and digital transformation services that empower your business to operate smarter, faster, and more securely.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>10+</strong><span>Years Experience</span></div>
+        <div class="stat"><strong>500+</strong><span>Projects Delivered</span></div>
+        <div class="stat"><strong>98%</strong><span>Client Satisfaction</span></div>
+      </div>
     </div>
-  </section>section>
-  <section id="pricing">
-    <div class="container">
-        <div class="section-header animate-in">
-              <div class="section-label">Simple, Transparent Pricing</div>
-              <h2>Choose Your <span class="accent-text">Growth Plan</span>span></h2>
-              <p>Three clear bundles designed to move you from launch to long-term growth. No à la carte confusion — just results.</p>
-        </div>
-        <div class="pricing-grid">
-              <div class="pricing-card animate-in">
-                      <div class="pricing-tier">Tier 1</div>
-                      <div class="pricing-name">Launch</div>
-                      <div class="pricing-tagline">Get your mission online, fast.</div>
-                      <div class="pricing-price">
-                                <span class="amount">$1,500</span><span class="period">one-time</span>
-                                <span class="note">+ 90 days of included support</span>
-                      </div>
-                      <ul class="pricing-features">
-                                <li><i class="fas fa-check"></i>i> Professional website build (up to 8 pages)</li>
-                                <li><i class="fas fa-check"></i>i> Custom logo design</li>
-                                <li><i class="fas fa-check"></i>i> Mobile-optimized &amp; SEO-ready</li>
-                                <li><i class="fas fa-check"></i>i> Contact form &amp; Google Maps integration</li>
-                                <li><i class="fas fa-check"></i>i> Social media linking</li>
-                                <li><i class="fas fa-check"></i>i> 90 days of post-launch support</li>
-                                <li><i class="fas fa-check"></i>i> 2 rounds of revisions</li>
-                      </ul>ul>
-                      <a href="#contact" class="pricing-cta outline">Get Started <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-              <div class="pricing-card featured animate-in delay-1">
-                      <div class="pricing-badge">Most Popular</div>
-                      <div class="pricing-tier">Tier 2</div>
-                      <div class="pricing-name">Operate</div>
-                      <div class="pricing-tagline">Your full digital department, monthly.</div>
-                      <div class="pricing-price">
-                                <span class="amount">$750</span><span class="period">/mo</span>
-                                <span class="note">12-month agreement — website build included at no upfront cost</span>
-                      </div>
-                      <ul class="pricing-features">
-                                <li><i class="fas fa-check"></i>i> Website build included (no upfront cost w/ 12-mo agreement)</li>
-                                <li><i class="fas fa-check"></i>i> Monthly website updates &amp; maintenance</li>
-                                <li><i class="fas fa-check"></i>i> Google Workspace setup &amp; management</li>
-                                <li><i class="fas fa-check"></i>i> Managed hosting &amp; security monitoring</li>
-                                <li><i class="fas fa-check"></i>i> Monthly content updates (up to 4 hrs)</li>
-                                <li><i class="fas fa-check"></i>i> Social media management (2 platforms)</li>
-                                <li><i class="fas fa-check"></i>i> Monthly performance report</li>
-                                <li><i class="fas fa-check"></i>i> Priority email &amp; phone support</li>
-                      </ul>ul>
-                      <a href="#contact" class="pricing-cta primary">Start Your Retainer <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-              <div class="pricing-card animate-in delay-2">
-                      <div class="pricing-tier">Tier 3</div>
-                      <div class="pricing-name">Grow</div>
-                      <div class="pricing-tagline">Everything in Operate, plus lead generation.</div>
-                      <div class="pricing-price">
-                                <span class="amount">$2,500</span><span class="period">/mo</span>
-                                <span class="note">12-month agreement — website build included at no upfront cost</span>
-                      </div>
-                      <ul class="pricing-features">
-                                <li><i class="fas fa-check"></i>i> Everything in the Operate plan</li>
-                                <li><i class="fas fa-check"></i>i> Paid advertising management (Google &amp; Meta Ads)</li>
-                                <li><i class="fas fa-check"></i>i> Lead generation campaigns</li>
-                                <li><i class="fas fa-check"></i>i> Landing page creation &amp; A/B testing</li>
-                                <li><i class="fas fa-check"></i>i> Monthly ad performance analysis</li>
-                                <li><i class="fas fa-check"></i>i> Advanced SEO strategy &amp; reporting</li>
-                                <li><i class="fas fa-check"></i>i> CRM integration support</li>
-                                <li><i class="fas fa-check"></i>i> Dedicated account manager</li>
-                      </ul>ul>
-                      <a href="#contact" class="pricing-cta outline">Apply for Grow <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-        </div>
-        <div class="pricing-hook animate-in">
-              <h3><i class="fas fa-bolt"></i>i> The Smart Move: Get Your Website for $0 Upfront</h3>
-              <p>Sign a 12-month Operate or Grow agreement and we build your entire website at no upfront cost. We finance the build through your retainer — turning a $999 one-time project into a $9,000–$30,000 long-term partnership that actually grows your business.</p>
-        </div>
+    <div class="hero-card">
+      <div class="portrait"><img src="header-logo.jpg" alt="David Powell, Founder and CEO of DPTC" width="170" height="170" loading="lazy"></div>
+      <h3>David Powell</h3>
+      <div class="role">Founder &amp; CEO</div>
+      <div class="logo-line">DPTC — David Powell Tech Consulting</div>
     </div>
-  </section>section>
-  <section id="services">
-    <div class="container">
-        <div class="section-header animate-in">
-              <div class="section-label">What's Included</div>
-              <h2>Our <span class="accent-text">Core Capabilities</span>span></h2>
-              <p>Every retainer is powered by these core digital operations disciplines.</p>
-        </div>
-        <div class="service-filters animate-in">
-              <button class="filter-btn active" data-filter="all">All</button>button>
-              <button class="filter-btn" data-filter="websites">Web</button>button>
-              <button class="filter-btn" data-filter="maintenance">Maintenance</button>button>
-              <button class="filter-btn" data-filter="marketing">Marketing</button>button>
-              <button class="filter-btn" data-filter="tech">Technology</button>button>
-        </div>
-        <div class="services-grid">
-              <div class="service-card animate-in" data-category="websites">
-                      <div class="service-icon"><i class="fas fa-globe"></i>i></div>
-                      <h3>Website Design &amp; Build</h3>
-                      <p>Custom, mobile-optimized websites built for conversion. Included at no upfront cost when you sign a 12-month Operate or Grow retainer.</p>
-                      <div class="service-price">Included in Operate &amp; Grow</div>
-                      <a href="#pricing" class="service-link">See Plans <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-              <div class="service-card animate-in delay-1" data-category="websites">
-                      <div class="service-icon"><i class="fas fa-pencil-ruler"></i>i></div>
-                      <h3>Logo &amp; Brand Identity</h3>
-                      <p>Professional logo design and brand kit included in the Launch package or as part of your retainer onboarding.</p>
-                      <div class="service-price">Included in Launch &amp; Operate</div>
-                      <a href="#pricing" class="service-link">See Plans <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-              <div class="service-card animate-in delay-2" data-category="maintenance">
-                      <div class="service-icon"><i class="fas fa-screwdriver-wrench"></i>i></div>
-                      <h3>Website Maintenance</h3>
-                      <p>Monthly plugin/theme updates, backups, uptime monitoring, content edits, and security patching — all handled for you.</p>
-                      <div class="service-price">Included in Operate &amp; Grow</div>
-                      <a href="#pricing" class="service-link">See Plans <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-              <div class="service-card animate-in" data-category="tech">
-                      <div class="service-icon"><i class="fas fa-envelope"></i>i></div>
-                      <h3>Google Workspace</h3>
-                      <p>Business email setup, Google Drive, shared calendar, and ongoing account management so your team communicates professionally.</p>
-                      <div class="service-price">Included in Operate &amp; Grow</div>
-                      <a href="#pricing" class="service-link">See Plans <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-              <div class="service-card animate-in delay-1" data-category="tech">
-                      <div class="service-icon"><i class="fas fa-server"></i>i></div>
-                      <h3>Managed Hosting &amp; Security</h3>
-                      <p>Fast, reliable AWS Lightsail hosting with SSL, firewall management, and monthly security monitoring included in your retainer.</p>
-                      <div class="service-price">Included in Operate &amp; Grow</div>
-                      <a href="#pricing" class="service-link">See Plans <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-              <div class="service-card animate-in delay-2" data-category="marketing">
-                      <div class="service-icon"><i class="fas fa-share-nodes"></i>i></div>
-                      <h3>Social Media Management</h3>
-                      <p>Monthly content creation and posting across two platforms. Keep your audience engaged without spending hours on it yourself.</p>
-                      <div class="service-price">Included in Operate &amp; Grow</div>
-                      <a href="#pricing" class="service-link">See Plans <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-              <div class="service-card animate-in" data-category="marketing">
-                      <div class="service-icon"><i class="fas fa-bullhorn"></i>i></div>
-                      <h3>Paid Ads &amp; Lead Generation</h3>
-                      <p>Google and Meta ad campaigns managed end-to-end. We build, test, and optimize to generate qualified leads every month.</p>
-                      <div class="service-price">Included in Grow Plan</div>
-                      <a href="#pricing" class="service-link">See Plans <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-              <div class="service-card animate-in delay-1" data-category="marketing">
-                      <div class="service-icon"><i class="fas fa-chart-line"></i>i></div>
-                      <h3>SEO &amp; Monthly Reporting</h3>
-                      <p>Track your rankings, traffic, and leads with a clear monthly report. We explain what's working and what we're improving next.</p>
-                      <div class="service-price">Included in All Plans</div>
-                      <a href="#pricing" class="service-link">See Plans <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-              <div class="service-card animate-in delay-2" data-category="tech">
-                      <div class="service-icon"><i class="fas fa-computer"></i>i></div>
-                      <h3>Custom PC Builds</h3>
-                      <p>Need reliable hardware for your team? Custom PC builds assembled and configured by DPTC. You purchase parts, we build and set up.</p>
-                      <div class="service-price">Quote-Based</div>
-                      <a href="#contact" class="service-link">Get a Quote <i class="fas fa-arrow-right"></i>i></a>a>
-              </div>
-        </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section" aria-labelledby="about-title">
+  <div class="container about-grid">
+    <div class="about-visual"><img src="dptc-logo.png" alt="DPTC – David Powell Tech Consulting logo" loading="lazy"></div>
+    <div>
+      <span class="eyebrow">About Us</span>
+      <h2 class="section-title" id="about-title">Where Military Discipline Meets Tech Innovation</h2>
+      <p>David Powell founded DPTC after serving in the U.S. military, bringing the same commitment to excellence, integrity, and mission success to every client engagement. With over a decade in IT consulting, we have helped hundreds of businesses navigate digital transformation.</p>
+      <p>Our veteran-owned firm specializes in delivering enterprise-grade solutions that are reliable, secure, and built to scale — on time and on budget.</p>
+      <ul class="feature-list">
+        <li><span class="check">✓</span> Military-grade reliability and accountability</li>
+        <li><span class="check">✓</span> Transparent pricing with no hidden fees</li>
+        <li><span class="check">✓</span> 24/7 support and rapid incident response</li>
+        <li><span class="check">✓</span> Certified professionals across all major platforms</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Work With Us</a>
     </div>
-  </section>section>
-  <section id="stats">
-    <div class="container">
-        <div class="stats-grid">
-              <div class="stat-item animate-in"><div class="stat-icon"><i class="fas fa-briefcase"></i>i></div><div class="stat-number" data-target="200">0</div><div class="stat-plus">+</div><div class="stat-label">Businesses Served</div></div>
-              <div class="stat-item animate-in delay-1"><div class="stat-icon"><i class="fas fa-handshake"></i>i></div><div class="stat-number" data-target="85">0</div><div class="stat-plus">%</div><div class="stat-label">Clients on Retainer</div></div>
-              <div class="stat-item animate-in delay-2"><div class="stat-icon"><i class="fas fa-calendar-check"></i>i></div><div class="stat-number" data-target="10">0</div><div class="stat-plus">+</div><div class="stat-label">Years in Business</div></div>
-              <div class="stat-item animate-in delay-3"><div class="stat-icon"><i class="fas fa-award"></i>i></div><div class="stat-number" data-target="98">0</div><div class="stat-plus">%</div><div class="stat-label">Client Satisfaction</div></div>
-        </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section" aria-labelledby="services-title">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="section-title" id="services-title">Our Services</h2>
+      <p class="section-intro">Comprehensive technology and digital solutions tailored to your business needs.</p>
     </div>
-  </section>section>
-  <section id="reviews">
-    <div class="container">
-        <div class="section-header animate-in">
-              <div class="section-label">Client Reviews</div>
-              <h2>What Our <span class="accent-text">Partners</span>span> Say</h2>
-        </div>
-        <div class="reviews-grid">
-              <div class="review-card animate-in"><div class="review-stars"><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i></div><p>"Switching to DPTC's monthly Operate plan was the best business decision we made. We no longer worry about our website — it's just handled. Our leads have doubled."</p><div class="reviewer"><div class="reviewer-avatar">MR</div><div><strong>Marcus Rivera</strong><span>Owner, Rivera Security Solutions (Veteran-Owned)</span></div></div></div>
-              <div class="review-card animate-in delay-1"><div class="review-stars"><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i></div><p>"Their cybersecurity monitoring caught a threat before it became a crisis. Having DPTC as our digital department gives us real peace of mind. Fast, thorough, and incredibly knowledgeable."</p><div class="reviewer"><div class="reviewer-avatar">SR</div><div><strong>Sarah Reynolds</strong><span>COO, TechBridge Inc.</span></div></div></div>
-              <div class="review-card animate-in delay-2"><div class="review-stars"><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i><i class="fas fa-star"></i>i></div><p>"The Grow plan's paid ads and lead generation results were incredible. We got our website for no upfront cost and now consistently get 20+ qualified leads per month."</p><div class="reviewer"><div class="reviewer-avatar">TC</div><div><strong>Tom Chen</strong><span>Director of Operations, Pacific Health Group</span></div></div></div>
-        </div>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All Services</button>
+      <button class="filter-btn" data-filter="websites">Websites</button>
+      <button class="filter-btn" data-filter="maintenance">Maintenance</button>
+      <button class="filter-btn" data-filter="marketing">Marketing</button>
+      <button class="filter-btn" data-filter="technology">Technology</button>
+      <button class="filter-btn" data-filter="audits">Audits &amp; Fixes</button>
     </div>
-  </section>section>
-  <section id="contact">
-    <div class="container">
-        <div class="section-header animate-in">
-              <div class="section-label">Let's Talk</div>
-              <h2>Ready to Stop <span class="accent-text">One-Time Projects</span>span>?</h2>
-              <p>Book a free consultation and we'll map out the right plan for your business. No pressure, no jargon — just a straight conversation about your goals.</p>
-        </div>
-        <div class="contact-grid">
-              <div class="contact-form animate-in">
-                      <form>
-                                  <div class="form-row"><div class="form-group"><label>First Name</label><input type="text" placeholder="John" required /></div><div class="form-group"><label>Last Name</label><input type="text" placeholder="Doe" required /></div></div>
-                                <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@yourbusiness.com" required /></div>
-                                <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(407) 555-0100" /></div>
-                                <div class="form-group"><label>Which Plan Are You Interested In?</label>
-                                            <select>
-                                                            <option value="">Select a Plan…</option>option>
-                                                            <option value="launch">Launch — Website + Logo + 90-Day Support</option>option>
-                                                            <option value="operate">Operate — Monthly Retainer ($750/mo)</option>option>
-                                                            <option value="grow">Grow — Full Digital Department + Ads ($2,500/mo)</option>option>
-                                                            <option value="consultation">Just a Free Consultation</option>option>
-                                            </select>
-                                </div>
-                                  <div class="form-group"><label>Tell Us About Your Business</label><textarea placeholder="Share a bit about your business and what you're looking to achieve…" rows="4"></textarea></div>
-                                  <button type="submit" class="btn btn-primary btn-lg btn-full">Book My Free Consultation <i class="fas fa-paper-plane"></i>i></button>button>
-                      </form>
-              </div>
-                <div class="contact-info animate-in delay-1">
-                          <div class="contact-detail"><i class="fas fa-phone"></i>i><div><strong>Phone:</strong><a href="tel:+14077955538">407.795.5538</a>a></div></div>
-                          <div class="contact-detail"><i class="fas fa-envelope"></i>i><div><strong>Email:</strong><a href="mailto:info@dptconsulting.com">info@dptconsulting.com</a>a></div></div>
-                          <div class="hours-box"><h4><i class="fas fa-clock"></i>i> Business Hours</h4>
-                                      <div class="hours-row"><span>Monday - Friday</span><span>8:00 AM - 6:00 PM</span></div>
-                                    <div class="hours-row"><span>Saturday</span><span>By Appointment</span></div>
-                                    <div class="hours-row"><span>Sunday</span><span>Emergency Only</span></div>
-                                    <div class="hours-note"><i class="fas fa-headset"></i>i> 24/7 Emergency Support Available</div>
-                          </div>
-                </div>
-        </div>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<section id="stats" class="section">
+  <div class="container counter-grid">
+    <div class="counter"><strong data-target="500" data-suffix="+">0+</strong><span>Projects Completed</span></div>
+    <div class="counter"><strong data-target="350" data-suffix="+">0+</strong><span>Happy Clients</span></div>
+    <div class="counter"><strong data-target="10" data-suffix="+">0+</strong><span>Years in Business</span></div>
+    <div class="counter"><strong data-target="98" data-suffix="%">0%</strong><span>Satisfaction Rate</span></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews" class="section" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Testimonials</span>
+      <h2 class="section-title" id="reviews-title">What Our Clients Say</h2>
     </div>
-  </section>
-  <footer id="footer">
-    <div class="container footer-inner">
-        <div class="footer-brand">
-              <img src="dptc-logo.png" alt="DPTC Logo" class="footer-logo" />
-              <p>Your outsourced digital department, built for veteran-owned small businesses. Serving clients nationwide from Orlando, FL.</p>
-              <div class="social-links">
-                      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i>i></a>a>
-                      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i>i></a>a>
-                      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i>i></a>a>
-              </div>
-        </div>
-        <div class="footer-links"><h4>Plans</h4><ul><li><a href="#pricing">Launch</a>a></li><li><a href="#pricing">Operate — $750/mo</a>a></li><li><a href="#pricing">Grow — $2,500/mo</a>a></li></ul></div>
-        <div class="footer-links"><h4>Services</h4><ul><li><a href="#services">Web Design</a>a></li><li><a href="#services">Maintenance</a>a></li><li><a href="#services">Marketing</a>a></li><li><a href="#services">Paid Ads</a>a></li><li><a href="#services">Google Workspace</a>a></li></ul></div>
-        <div class="footer-subscribe"><h4>Stay Updated</h4><p>Get monthly digital tips for veteran-owned businesses.</p>
-              <form class="subscribe-form"><input type="email" placeholder="your@email.com" /><button type="submit" class="btn btn-primary">Subscribe</button>button></form>
-        </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Great customer service, prompt, professional and reliable service. I promise you will not be disappointed in the service rendered."</p>
+        <div class="testi-author"><div class="av">LM</div><div><strong>Laronda Morris</strong><span>Recommended on Facebook</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"This gentleman is more than qualified to handle any task that you put before him. He's a 10 out of 10 — I highly recommend."</p>
+        <div class="testi-author"><div class="av">GS</div><div><strong>Gwendlyn Still</strong><span>Recommended on Facebook</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"This gentleman is my go to for all my IT needs."</p>
+        <div class="testi-author"><div class="av">NP</div><div><strong>Nathan Pope II</strong><span>Recommended on Facebook</span></div></div>
+      </div>
     </div>
-    <div class="footer-bottom"><div class="container"><p>&copy; 2026 DPTC – David Powell Tech Consulting. All rights reserved. | Veteran-Owned &amp; Operated | Orlando, FL</p></div></div>
-  </footer>footer>
-  <script src="js/main.js"></script>
-  </body>
-</html>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Get In Touch</span>
+      <h2 class="section-title" id="contact-title">Ready to Get Started?</h2>
+      <p class="section-intro">Book a free consultation and let's discuss how DPTC can solve your technology challenges.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form" onsubmit="event.preventDefault();alert('Thank you! This is a demo form.');">
+        <div class="form-row">
+          <div class="field"><label>First Name</label><input type="text" required></div>
+          <div class="field"><label>Last Name</label><input type="text" required></div>
+        </div>
+        <div class="field"><label>Email Address</label><input type="email" required></div>
+        <div class="field"><label>Phone Number</label><input type="tel"></div>
+        <div class="field"><label>Service Needed</label>
+          <select>
+            <option>Select a service...</option>
+            <option>Standard Website</option>
+            <option>Starter Website Package</option>
+            <option>E-Commerce Package</option>
+            <option>Social Media Package</option>
+            <option>Starter Maintenance</option>
+            <option>E-Commerce Maintenance</option>
+            <option>Logo Design</option>
+            <option>PC Construction</option>
+            <option>Google Workspace Setup</option>
+            <option>Mobile Responsiveness Audit &amp; Fixes</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Message</label><textarea rows="4"></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <div class="info-item"><div class="ic">✆</div><div><h4>Phone</h4><a href="tel:+14077955538">407.795.5538</a></div></div>
+        <div class="info-item"><div class="ic">✉</div><div><h4>Email</h4><a href="mailto:dapowell1@dpowelltc.com">dapowell1@dpowelltc.com</a></div></div>
+        <div class="info-item"><div class="ic">⌖</div><div><h4>Location</h4><p>Orlando, Florida &amp; Nationwide</p></div></div>
+        <div class="hours-box">
+          <h4>Business Hours</h4>
+          <div class="hours-row"><span>Monday - Friday</span><span>8:00 AM - 6:00 PM</span></div>
+          <div class="hours-row"><span>Saturday</span><span>9:00 AM - 2:00 PM</span></div>
+          <div class="hours-row"><span>Sunday</span><span>Emergency Only</span></div>
+          <div class="emergency">24/7 Emergency Support Available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="brand" aria-label="DPTC home">
+          <img src="dptc-logo.png" class="brand-logo" alt="">
+          <div class="brand-text"><strong>DPTC</strong><span>David Powell Tech Consulting</span></div>
+        </a>
+        <p>Expert IT consulting with military precision. Serving businesses nationwide from Orlando, FL.</p>
+        <div class="socials"><a href="https://www.facebook.com/profile.php?id=61575631854523" target="_blank" rel="noopener" aria-label="DPTC on Facebook">f</a><a href="https://www.linkedin.com/in/davidpowell1128/" target="_blank" rel="noopener" aria-label="David Powell on LinkedIn">in</a></div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
