@@ -289,6 +289,19 @@ footer ul a:hover{color:var(--accent)}
   .counter-grid,.footer-grid{grid-template-columns:1fr}
   .hero-stats{gap:24px}
 }
+
+/* ── Review CTA & In-Site Form ── */
+.review-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:24px 0 40px}
+.review-form-section{margin-top:50px;padding:36px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px}
+.review-form-section h3{font-family:'Montserrat',sans-serif;font-size:1.25rem;margin-bottom:24px;color:var(--accent)}
+.star-rating{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:6px;margin-bottom:18px}
+.star-rating input{display:none}
+.star-rating label{font-size:1.8rem;cursor:pointer;color:#555;transition:color .2s}
+.star-rating input:checked~label,.star-rating label:hover,.star-rating label:hover~label{color:var(--accent)}
+.review-consent{display:flex;align-items:flex-start;gap:10px;margin-bottom:18px}
+.review-consent input{margin-top:3px;accent-color:var(--accent)}
+.review-consent label{font-size:.85rem;color:#9aa3b5}
+.review-success{display:none;text-align:center;padding:20px;color:var(--accent);font-family:'Montserrat',sans-serif;font-weight:600}
 </style>
 </head>
 <body>
@@ -409,6 +422,10 @@ footer ul a:hover{color:var(--accent)}
     <div class="center">
       <span class="eyebrow">Testimonials</span>
       <h2 class="section-title" id="reviews-title">What Our Clients Say</h2>
+    <div class="review-cta">
+      <a href="REPLACE_WITH_GOOGLE_REVIEW_LINK" class="btn btn-primary" target="_blank" rel="noopener">&#9733; Leave a Google Review</a>
+      <a href="#write-review" class="btn btn-outline">Write a Review Here</a>
+    </div>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
@@ -426,6 +443,49 @@ footer ul a:hover{color:var(--accent)}
         <p>"This gentleman is my go to for all my IT needs."</p>
         <div class="testi-author"><div class="av">NP</div><div><strong>Nathan Pope II</strong><span>Recommended on Facebook</span></div></div>
       </div>
+    </div>
+  </div>
+
+
+  <!-- In-Site Review Form -->
+  <div class="container" id="write-review">
+    <div class="review-form-section">
+      <h3>Share Your Experience</h3>
+      <div class="review-success" id="review-success">
+        <p>&#10003; Thank you for your review! We appreciate your feedback.</p>
+      </div>
+      <form id="review-form" action="REPLACE_WITH_FORMSPREE_ENDPOINT" method="POST" novalidate>
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="form-row">
+          <div class="field">
+            <label for="rv-name">Full Name *</label>
+            <input type="text" id="rv-name" name="name" required placeholder="Jane Smith">
+          </div>
+          <div class="field">
+            <label for="rv-email">Email Address *</label>
+            <input type="email" id="rv-email" name="email" required placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="field">
+          <label>Rating *</label>
+          <div class="star-rating" role="radiogroup" aria-label="Star rating">
+            <input type="radio" id="s5" name="rating" value="5"><label for="s5" title="5 stars">&#9733;</label>
+            <input type="radio" id="s4" name="rating" value="4"><label for="s4" title="4 stars">&#9733;</label>
+            <input type="radio" id="s3" name="rating" value="3"><label for="s3" title="3 stars">&#9733;</label>
+            <input type="radio" id="s2" name="rating" value="2"><label for="s2" title="2 stars">&#9733;</label>
+            <input type="radio" id="s1" name="rating" value="1"><label for="s1" title="1 star">&#9733;</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="rv-body">Your Review *</label>
+          <textarea id="rv-body" name="review" rows="4" required placeholder="Tell us about your experience with DPTC..."></textarea>
+        </div>
+        <div class="review-consent">
+          <input type="checkbox" id="rv-consent" name="consent" required>
+          <label for="rv-consent">I consent to DPTC displaying my review publicly on this website and related platforms.</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </form>
     </div>
   </div>
 </section>
@@ -497,3 +557,110 @@ footer ul a:hover{color:var(--accent)}
       </div>
       <div>
         <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Web Development</a></li>
+          <li><a href="#services">E-Commerce</a></li>
+          <li><a href="#services">Cybersecurity</a></li>
+          <li><a href="#services">IT Consulting</a></li>
+          <li><a href="#services">Social Media</a></li>
+          <li><a href="#services">PC Build</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+14077955538">(407) 795-5538</a></li>
+          <li><a href="mailto:dapowell1@dpowelltc.com">dapowell1@dpowelltc.com</a></li>
+          <li><a href="#contact">Free Consultation</a></li>
+        </ul>
+        <div style="margin-top:20px">
+          <a href="#contact" class="btn btn-primary" style="font-size:.85rem;padding:10px 20px">Get a Free Quote</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 David Powell Tech Consulting (DPTC). All rights reserved. &nbsp;|&nbsp; Veteran-Owned &amp; Operated &nbsp;|&nbsp; Orlando, FL</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Sticky nav shadow
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+  }
+
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    faders.forEach(el => obs.observe(el));
+  }
+
+  // Review form async submit
+  const reviewForm = document.getElementById('review-form');
+  const reviewSuccess = document.getElementById('review-success');
+  if (reviewForm) {
+    reviewForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = reviewForm.querySelector('[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+      try {
+        const data = new FormData(reviewForm);
+        const resp = await fetch(reviewForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (resp.ok) {
+          reviewForm.style.display = 'none';
+          reviewSuccess.style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Submit Review';
+          alert('There was a problem submitting your review. Please try again.');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Submit Review';
+        alert('Network error. Please check your connection and try again.');
+      }
+    });
+  }
+</script>
+</body>
+</html>
