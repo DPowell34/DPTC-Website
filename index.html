@@ -209,15 +209,19 @@ header.nav.scrolled{padding:10px 0}
 .counter strong{display:block;font-family:'Montserrat',sans-serif;font-weight:900;font-size:3.2rem;color:var(--accent)}
 .counter span{color:#cdd3df;font-weight:600;letter-spacing:.5px}
 
-/* Testimonials */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:32px}
+/* Testimonials Carousel */
+.testi-carousel-wrap{position:relative;overflow:hidden;width:100%}
+.testi-track{display:flex;transition:transform .5s ease;will-change:transform}
+.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:32px;min-width:100%;box-sizing:border-box}
 .testi-card p{color:#dfe3ec;font-style:italic;margin-bottom:22px}
 .testi-author{display:flex;align-items:center;gap:14px}
 .testi-author .av{width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--dark);display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-weight:800;flex:none}
 .testi-author strong{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem}
 .testi-author span{font-size:.82rem;color:#aeb6c6}
 .stars{color:var(--accent);margin-bottom:14px;letter-spacing:2px}
+.testi-dots{display:flex;justify-content:center;gap:10px;margin-top:24px}
+.testi-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;padding:0;transition:background .3s}
+.testi-dot.active{background:var(--accent)}
 
 /* Shared Form Fields */
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -284,7 +288,7 @@ footer ul a:hover{color:var(--accent)}
   .hamburger{display:flex}
   .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
   .hero-grid h1{font-size:2.4rem}
-  .services-grid,.testi-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
   .counter-grid{grid-template-columns:1fr 1fr;gap:36px}
   .footer-grid{grid-template-columns:1fr 1fr}
   .section{padding:70px 0}
@@ -422,22 +426,29 @@ footer ul a:hover{color:var(--accent)}
         <a href="#write-review" class="btn btn-outline">Write a Review Here</a>
       </div>
     </div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Great customer service, prompt, professional and reliable service. I promise you will not be disappointed in the service rendered."</p>
-        <div class="testi-author"><div class="av">LM</div><div><strong>Laronda Morris</strong><span>Recommended on Facebook</span></div></div>
+    <div class="testi-carousel-wrap" id="testi-carousel">
+      <div class="testi-track">
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Great customer service, prompt, professional and reliable service. I promise you will not be disappointed in the service rendered."</p>
+          <div class="testi-author"><div class="av">LM</div><div><strong>Laronda Morris</strong><span>Recommended on Facebook</span></div></div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"This gentleman is more than qualified to handle any task that you put before him. He’s a 10 out of 10 — I highly recommend."</p>
+          <div class="testi-author"><div class="av">GS</div><div><strong>Gwendlyn Still</strong><span>Recommended on Facebook</span></div></div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"This gentleman is my go to for all my IT needs."</p>
+          <div class="testi-author"><div class="av">NP</div><div><strong>Nathan Pope II</strong><span>Recommended on Facebook</span></div></div>
+        </div>
       </div>
-      <div class="testi-card">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"This gentleman is more than qualified to handle any task that you put before him. He's a 10 out of 10 — I highly recommend."</p>
-        <div class="testi-author"><div class="av">GS</div><div><strong>Gwendlyn Still</strong><span>Recommended on Facebook</span></div></div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"This gentleman is my go to for all my IT needs."</p>
-        <div class="testi-author"><div class="av">NP</div><div><strong>Nathan Pope II</strong><span>Recommended on Facebook</span></div></div>
-      </div>
+    </div>
+    <div class="testi-dots">
+      <button class="testi-dot active" data-idx="0" aria-label="Review 1"></button>
+      <button class="testi-dot" data-idx="1" aria-label="Review 2"></button>
+      <button class="testi-dot" data-idx="2" aria-label="Review 3"></button>
     </div>
   </div>
 
@@ -754,5 +765,37 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
 });
 </script>
 
+
+<script>
+// Testimonials Carousel
+(function() {
+  var track = document.querySelector('.testi-track');
+  var dots = document.querySelectorAll('.testi-dot');
+  if (!track) return;
+  var current = 0;
+  var total = document.querySelectorAll('.testi-track .testi-card').length;
+  var timer;
+
+  function goTo(idx) {
+    current = (idx + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+  }
+
+  function next() { goTo(current + 1); }
+  function startAuto() { timer = setInterval(next, 5000); }
+  function stopAuto() { clearInterval(timer); }
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      stopAuto();
+      goTo(parseInt(this.dataset.idx));
+      startAuto();
+    });
+  });
+
+  startAuto();
+})();
+</script>
 </body>
 </html>
