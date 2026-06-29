@@ -1,10 +1,10 @@
 * ============================================================
-DPTC — Outsourced Digital Department
+DPTC â Outsourced Digital Department
 Stylesheet v6 | 2026
 Positioning: Veteran-Owned Small Business Partner
 ============================================================ */
 
-/* ── Variables ─────────────────────────────────────────────── */
+/* ââ Variables âââââââââââââââââââââââââââââââââââââââââââââââ */
 :root {
        --primary:        #1a2744;
        --primary-deep:   #0d1526;
@@ -28,7 +28,7 @@ Positioning: Veteran-Owned Small Business Partner
        --radius:         14px;
 }
 
-/* ── Reset & Base ───────────────────────────────────────────── */
+/* ââ Reset & Base âââââââââââââââââââââââââââââââââââââââââââââ */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -42,7 +42,7 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 
-/* ── Buttons ────────────────────────────────────────────────── */
+/* ââ Buttons ââââââââââââââââââââââââââââââââââââââââââââââââââ */
 .btn {
        display: inline-flex; align-items: center; gap: 10px;
        padding: 16px 36px;
@@ -58,7 +58,7 @@ img { max-width: 100%; display: block; }
 .btn-lg { padding: 18px 44px; font-size: 0.9rem; }
 .btn-full { width: 100%; justify-content: center; }
 
-/* ── Section Utilities ──────────────────────────────────────── */
+/* ââ Section Utilities ââââââââââââââââââââââââââââââââââââââââ */
 .section-label {
        font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700;
        letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent);
@@ -81,14 +81,14 @@ img { max-width: 100%; display: block; }
 }
 .accent-text { color: var(--accent); }
 
-/* ── Animations ─────────────────────────────────────────────── */
+/* ââ Animations âââââââââââââââââââââââââââââââââââââââââââââââ */
 .animate-in { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .animate-in.visible { opacity: 1; transform: none; }
 .delay-1 { transition-delay: 0.15s; }
 .delay-2 { transition-delay: 0.3s; }
 .delay-3 { transition-delay: 0.45s; }
 
-/* ── Mobile Menu ────────────────────────────────────────────── */
+/* ââ Mobile Menu ââââââââââââââââââââââââââââââââââââââââââââââ */
 .mobile-menu {
        position: fixed; inset: 0; background: var(--primary-deep);
        z-index: 1000; display: flex; flex-direction: column;
@@ -108,7 +108,7 @@ img { max-width: 100%; display: block; }
        font-size: 1.8rem; cursor: pointer; line-height: 1;
 }
 
-/* ── Navbar ─────────────────────────────────────────────────── */
+/* ââ Navbar âââââââââââââââââââââââââââââââââââââââââââââââââââ */
 #navbar {
        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
        padding: 22px 0;
@@ -145,7 +145,7 @@ img { max-width: 100%; display: block; }
 .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; padding: 4px; }
 .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
 
-/* ── Hero ───────────────────────────────────────────────────── */
+/* ââ Hero âââââââââââââââââââââââââââââââââââââââââââââââââââââ */
 #hero {
        min-height: 100vh; background: var(--bg);
        display: flex; align-items: center;
@@ -173,7 +173,7 @@ img { max-width: 100%; display: block; }
        font-family: var(--font-heading);
        font-size: clamp(2rem, 4vw, 3.2rem);
 
-       /* ── Review Form Section ─────────────────────────────────────── */
+       /* ââ Review Form Section âââââââââââââââââââââââââââââââââââââââ */
        .review-form-section {
                 background: rgba(255,255,255,0.03);
                 border: 1px solid rgba(255,255,255,0.08);
@@ -238,7 +238,7 @@ img { max-width: 100%; display: block; }
        #review-form textarea { min-height: 140px; resize: vertical; line-height: 1.6; }
        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
-       /* ── Star Rating (CSS-only radio trick) ──────────────────────── */
+       /* ââ Star Rating (CSS-only radio trick) ââââââââââââââââââââââââ */
        .star-rating {
                 display: flex;
                 flex-direction: row-reverse;
@@ -254,7 +254,7 @@ img { max-width: 100%; display: block; }
                 transition: color 0.15s, transform 0.15s;
                 margin-bottom: 0;
                 line-height: 1;
-                padding: 2px;
+                padding: 8px 6px; min-width: 40px; min-height: 40px; display: inline-flex; align-items: center; justify-content: center;
        }
        /* Highlight stars on hover (all stars from hovered to first) */
        .star-rating label:hover,
@@ -283,7 +283,7 @@ img { max-width: 100%; display: block; }
        .star-rating:has(input#s2:checked) label[for="s1"] { color: var(--accent); }
        .star-rating:has(input#s1:checked) label[for="s1"] { color: var(--accent); }
 
-       /* ── Highlight chips (What stood out) ────────────────────────── */
+       /* ââ Highlight chips (What stood out) ââââââââââââââââââââââââââ */
        .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
        .chip-label {
                 display: inline-flex;
@@ -311,7 +311,7 @@ img { max-width: 100%; display: block; }
                 font-weight: 600;
        }
 
-       /* ── Consent checkbox ────────────────────────────────────────── */
+       /* ââ Consent checkbox ââââââââââââââââââââââââââââââââââââââââââ */
        .consent-wrap {
                 display: flex;
                 align-items: center;
@@ -332,7 +332,7 @@ img { max-width: 100%; display: block; }
                 margin-bottom: 0;
        }
 
-       /* ── Review success message ──────────────────────────────────── */
+       /* ââ Review success message ââââââââââââââââââââââââââââââââââââ */
        .review-success {
                 display: none;
                 text-align: center;
@@ -356,7 +356,7 @@ img { max-width: 100%; display: block; }
        }
        .review-success p { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
 
-       /* ── Review CTA buttons area ─────────────────────────────────── */
+       /* ââ Review CTA buttons area âââââââââââââââââââââââââââââââââââ */
        .review-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 48px; }
 
        @media (max-width: 768px) {
@@ -400,7 +400,7 @@ img { max-width: 100%; display: block; }
 }
 .portrait-badge span { font-size: 0.72rem; color: var(--accent); }
 
-/* ── About ──────────────────────────────────────────────────── */
+/* ââ About ââââââââââââââââââââââââââââââââââââââââââââââââââââ */
 #about { padding: 140px 0; background: transparent; }
 .about-grid {
        display: grid; grid-template-columns: 1fr 1.5fr;
@@ -430,7 +430,7 @@ img { max-width: 100%; display: block; }
 }
 .about-feature i { color: var(--accent); font-size: 1.1rem; flex-shrink: 0; margin-top: 3px; }
 
-/* ── Pricing Section ────────────────────────────────────────── */
+/* ââ Pricing Section ââââââââââââââââââââââââââââââââââââââââââ */
 #pricing { padding: 120px 0; background: rgba(0,0,0,0.25); }
 .pricing-grid {
        display: grid; grid-template-columns: repeat(3, 1fr);
@@ -503,7 +503,7 @@ img { max-width: 100%; display: block; }
        margin: 0 auto; line-height: 1.85;
 }
 
-/* ── Services ───────────────────────────────────────────────── */
+/* ââ Services âââââââââââââââââââââââââââââââââââââââââââââââââ */
 #services { padding: 120px 0; }
 .service-filters {
        display: flex; flex-wrap: wrap; gap: 12px;
@@ -511,7 +511,7 @@ img { max-width: 100%; display: block; }
 }
 .filter-btn {
        background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
-       color: rgba(255,255,255,0.7); padding: 10px 22px; border-radius: 20px;
+       color: rgba(255,255,255,0.7); padding: 14px 22px; border-radius: 20px; min-height: 44px;
        font-family: var(--font-heading); font-size: 0.76rem; font-weight: 600;
        letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: var(--transition);
 }
@@ -549,7 +549,7 @@ img { max-width: 100%; display: block; }
 }
 .service-link:hover { gap: 12px; }
 
-/* ── Stats ──────────────────────────────────────────────────── */
+/* ââ Stats ââââââââââââââââââââââââââââââââââââââââââââââââââââ */
 #stats { padding: 100px 0; background: rgba(0,0,0,0.3); }
 .stats-grid {
        display: grid; grid-template-columns: repeat(4, 1fr);
@@ -570,7 +570,7 @@ img { max-width: 100%; display: block; }
        margin-top: 12px; letter-spacing: 0.05em; text-transform: uppercase;
 }
 
-/* ── Reviews ────────────────────────────────────────────────── */
+/* ââ Reviews ââââââââââââââââââââââââââââââââââââââââââââââââââ */
 #reviews { padding: 120px 0; }
 .reviews-grid {
        display: grid; grid-template-columns: repeat(3, 1fr);
@@ -604,7 +604,7 @@ img { max-width: 100%; display: block; }
 }
 .reviewer span { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
 
-/* ── Contact ────────────────────────────────────────────────── */
+/* ââ Contact ââââââââââââââââââââââââââââââââââââââââââââââââââ */
 #contact { padding: 120px 0; background: rgba(0,0,0,0.2); }
 .contact-grid {
        display: grid; grid-template-columns: 1.2fr 1fr;
@@ -660,7 +660,7 @@ img { max-width: 100%; display: block; }
 .hours-row:last-of-type { border-bottom: none; }
 .hours-note { margin-top: 16px; font-size: 0.8rem; color: var(--accent); display: flex; align-items: center; gap: 8px; }
 
-/* ── Footer ─────────────────────────────────────────────────── */
+/* ââ Footer âââââââââââââââââââââââââââââââââââââââââââââââââââ */
 #footer {
        background: rgba(0,0,0,0.45);
        border-top: 1px solid rgba(255,255,255,0.07);
@@ -707,7 +707,7 @@ img { max-width: 100%; display: block; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding: 24px 0; }
 .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); text-align: center; }
 
-/* ── Responsive ─────────────────────────────────────────────── */
+/* ââ Responsive âââââââââââââââââââââââââââââââââââââââââââââââ */
 @media (max-width: 1024px) {
        .pricing-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
        .footer-inner { grid-template-columns: 1fr 1fr; gap: 48px; }
@@ -743,3 +743,10 @@ img { max-width: 100%; display: block; }
        .review-card { padding: 32px 24px; }
        .service-card { padding: 32px 24px; }
 }
+
+
+/* Touch Target Accessibility - WCAG 2.5.5 */
+.filter-btn { touch-action: manipulation; }
+
+/* Image optimization */
+img { max-width: 100%; height: auto; }
