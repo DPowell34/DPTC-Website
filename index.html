@@ -35,8 +35,8 @@
 <meta name="twitter:image:alt" content="DPTC – David Powell Tech Consulting logo">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
 
 <script type="application/ld+json">
 {
@@ -111,8 +111,10 @@
 <style>
 :root{
   --primary:#1a2744;
-  --accent:#c9a84c;
-  --accent-light:#e6c97a;
+  --accent:#8b74ff;
+  --accent-light:#a693ff;
+  --accent-solid:#5b2eff;
+  --pop:#c8f542;
   --dark:#0d1526;
   --bg:linear-gradient(135deg,#0d1526 0%,#1a2744 60%,#1e3a6e 100%);
   --light:#f4f6fa;
@@ -127,22 +129,22 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 section[id]{scroll-margin-top:90px}
-body{font-family:'Open Sans',sans-serif;color:var(--white);background:var(--bg);background-attachment:fixed;line-height:1.65;overflow-x:hidden}
-h1,h2,h3,h4,h5{font-family:'Montserrat',sans-serif;line-height:1.2}
+body{font-family:'Inter',sans-serif;color:var(--white);background:var(--bg);background-attachment:fixed;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:'Space Grotesk',sans-serif;line-height:1.2}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 .section{padding:96px 0}
-.eyebrow{display:inline-block;color:var(--accent);font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:14px}
-.section-title{font-size:2.4rem;font-weight:800;margin-bottom:18px}
+.eyebrow{display:inline-block;color:var(--accent);font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:14px}
+.section-title{font-size:2.4rem;font-weight:700;margin-bottom:18px}
 .section-intro{max-width:640px;color:#c7cdd9;font-size:1.05rem;margin-bottom:48px}
 .center{text-align:center}
 .center .section-intro{margin-left:auto;margin-right:auto}
 
 /* Buttons */
-.btn{display:inline-block;padding:14px 30px;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;border:2px solid transparent;transition:var(--transition)}
-.btn-primary{background:var(--accent);color:var(--dark)}
-.btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.btn{display:inline-block;padding:14px 30px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;border:2px solid transparent;transition:var(--transition)}
+.btn-primary{background:var(--accent-solid);color:#fff}
+.btn-primary:hover{background:#7c5cff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,46,255,.45)}
 .btn-outline{background:transparent;border-color:rgba(255,255,255,.4);color:var(--white)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
 
@@ -152,38 +154,38 @@ header.nav.scrolled{padding:10px 0}
 .nav-inner{display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:12px}
 .brand .brand-logo{height:48px;width:auto;max-width:200px;object-fit:contain;display:block;border-radius:6px}
-.brand .brand-text strong{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:1px}
+.brand .brand-text strong{display:block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:1px}
 .brand .brand-text span{font-size:.72rem;color:#aeb6c6;letter-spacing:.5px}
 .nav-links{display:flex;align-items:center;gap:30px;list-style:none}
-.nav-links a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.92rem;color:#e7eaf1;transition:var(--transition)}
+.nav-links a{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.92rem;color:#e7eaf1;transition:var(--transition)}
 .nav-links a:hover{color:var(--accent)}
 .nav-actions{display:flex;align-items:center;gap:18px}
-.nav-phone{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--accent);font-size:.95rem}
+.nav-phone{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);font-size:.95rem}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
 .hamburger span{width:26px;height:3px;background:var(--white);border-radius:2px;transition:var(--transition)}
 
 /* Mobile Drawer */
 .mobile-menu{position:fixed;inset:0;background:rgba(13,21,38,.98);z-index:1100;flex-direction:column;align-items:center;justify-content:center;gap:28px;display:none}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.4rem;color:var(--white)}
+.mobile-menu a{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem;color:var(--white)}
 .mobile-menu a:hover{color:var(--accent)}
 .mobile-close{position:absolute;top:24px;right:28px;font-size:2rem;background:none;border:none;color:var(--white);cursor:pointer}
 
 /* Hero */
 #hero{padding:80px 0 90px}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
-.badge-vet{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.4);color:var(--accent);padding:7px 16px;border-radius:30px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
-.hero-grid h1{font-size:3.2rem;font-weight:900;margin-bottom:22px}
-.hero-grid h1 .gold{color:var(--accent)}
+.badge-vet{display:inline-flex;align-items:center;gap:8px;background:rgba(200,245,66,.1);border:1px solid rgba(200,245,66,.4);color:var(--pop);padding:7px 16px;border-radius:30px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+.hero-grid h1{font-size:3.2rem;font-weight:700;margin-bottom:22px}
+.hero-grid h1 .accent{color:var(--accent)}
 .hero-lead{font-size:1.12rem;color:#cdd3df;max-width:560px;margin-bottom:34px}
 .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
 .hero-stats{display:flex;gap:40px;flex-wrap:wrap}
-.hero-stats .stat strong{display:block;font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;color:var(--accent)}
+.hero-stats .stat strong{display:block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2rem;color:var(--pop)}
 .hero-stats .stat span{font-size:.85rem;color:#aeb6c6}
 .hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:32px;box-shadow:var(--shadow-lg);text-align:center;backdrop-filter:blur(6px)}
 .hero-card .portrait{width:170px;height:170px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(135deg,#1e3a6e,#0d1526);border:3px solid var(--accent);overflow:hidden;display:grid;place-items:center}
 .hero-card .portrait img{width:100%;height:100%;object-fit:cover}
-.hero-card h3{font-size:1.4rem;font-weight:800}
+.hero-card h3{font-size:1.4rem;font-weight:700}
 .hero-card .role{color:var(--accent);font-weight:600;font-size:.95rem;margin-top:4px}
 .hero-card .logo-line{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);color:#aeb6c6;font-size:.85rem}
 
@@ -195,27 +197,27 @@ header.nav.scrolled{padding:10px 0}
 .about-grid p{color:#c7cdd9;margin-bottom:18px}
 .feature-list{list-style:none;margin:26px 0}
 .feature-list li{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;color:#dfe3ec}
-.feature-list .check{flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--dark);display:grid;place-items:center;font-weight:900;font-size:.85rem}
+.feature-list .check{flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--dark);display:grid;place-items:center;font-weight:700;font-size:.85rem}
 
 /* Services */
 .filters{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:44px}
-.filter-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#dfe3ec;padding:10px 22px;border-radius:30px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.88rem;cursor:pointer;transition:var(--transition)}
+.filter-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#dfe3ec;padding:10px 22px;border-radius:30px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.88rem;cursor:pointer;transition:var(--transition)}
 .filter-btn:hover{border-color:var(--accent);color:var(--accent)}
 .filter-btn.active{background:var(--accent);color:var(--dark);border-color:var(--accent)}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .service-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:30px;display:flex;flex-direction:column;transition:var(--transition)}
-.service-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.5);box-shadow:var(--shadow-lg)}
-.service-card .tag{align-self:flex-start;background:rgba(201,168,76,.14);color:var(--accent);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:16px}
-.service-card h3{font-size:1.25rem;font-weight:800;margin-bottom:12px}
+.service-card:hover{transform:translateY(-6px);border-color:rgba(139,116,255,.5);box-shadow:var(--shadow-lg)}
+.service-card .tag{align-self:flex-start;background:rgba(139,116,255,.14);color:var(--accent);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:16px}
+.service-card h3{font-size:1.25rem;font-weight:700;margin-bottom:12px}
 .service-card p{color:#c2c8d4;font-size:.92rem;flex-grow:1;margin-bottom:20px}
-.service-card .price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.8rem;color:var(--accent);margin-bottom:18px}
+.service-card .price{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.8rem;color:var(--pop);margin-bottom:18px}
 .service-card .price small{font-size:.9rem;color:#aeb6c6;font-weight:600}
 .service-card .btn{text-align:center;font-size:.85rem;padding:11px 0;width:100%}
 
 /* Stats */
 #stats{background:linear-gradient(135deg,#0d1526,#1a2744)}
 .counter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
-.counter strong{display:block;font-family:'Montserrat',sans-serif;font-weight:900;font-size:3.2rem;color:var(--accent)}
+.counter strong{display:block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:3.2rem;color:var(--pop)}
 .counter span{color:#cdd3df;font-weight:600;letter-spacing:.5px}
 
 /* Testimonials Carousel */
@@ -224,8 +226,8 @@ header.nav.scrolled{padding:10px 0}
 .testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:32px;min-width:100%;box-sizing:border-box}
 .testi-card p{color:#dfe3ec;font-style:italic;margin-bottom:22px}
 .testi-author{display:flex;align-items:center;gap:14px}
-.testi-author .av{width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--dark);display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-weight:800;flex:none}
-.testi-author strong{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem}
+.testi-author .av{width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--dark);display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-weight:700;flex:none}
+.testi-author strong{display:block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.95rem}
 .testi-author span{font-size:.82rem;color:#aeb6c6}
 .stars{color:var(--accent);margin-bottom:14px;letter-spacing:2px}
 .testi-dots{display:flex;justify-content:center;gap:10px;margin-top:24px}
@@ -235,8 +237,8 @@ header.nav.scrolled{padding:10px 0}
 /* Shared Form Fields */
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .field{margin-bottom:18px}
-.field label{display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.82rem;margin-bottom:7px;color:#dfe3ec}
-.field input,.field select,.field textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(13,21,38,.6);color:var(--white);font-family:'Open Sans',sans-serif;font-size:.95rem;transition:border-color .2s}
+.field label{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.82rem;margin-bottom:7px;color:#dfe3ec}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(13,21,38,.6);color:var(--white);font-family:'Inter',sans-serif;font-size:.95rem;transition:border-color .2s}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
 .field select option{background:#0d1526}
 
@@ -245,7 +247,7 @@ header.nav.scrolled{padding:10px 0}
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px}
 .contact-form{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:36px}
 .contact-info .info-item{display:flex;gap:16px;margin-bottom:26px}
-.contact-info .ic{flex:none;width:48px;height:48px;border-radius:12px;background:rgba(201,168,76,.14);color:var(--accent);display:grid;place-items:center;font-size:1.2rem;font-weight:900;font-family:'Montserrat',sans-serif}
+.contact-info .ic{flex:none;width:48px;height:48px;border-radius:12px;background:rgba(139,116,255,.14);color:var(--accent);display:grid;place-items:center;font-size:1.2rem;font-weight:700;font-family:'Space Grotesk',sans-serif}
 .contact-info h4{font-size:1rem;margin-bottom:3px}
 .contact-info p,.contact-info a{color:#c7cdd9;font-size:.95rem}
 .hours-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px;margin-top:8px}
@@ -257,7 +259,7 @@ header.nav.scrolled{padding:10px 0}
 /* Review Section */
 .review-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:24px 0 40px}
 .review-form-section{margin-top:50px;padding:36px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px}
-.review-form-section h3{font-family:'Montserrat',sans-serif;font-size:1.35rem;font-weight:800;margin-bottom:6px;color:var(--accent)}
+.review-form-section h3{font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:700;margin-bottom:6px;color:var(--accent)}
 .review-form-section .form-subtitle{color:#9aa3b5;font-size:.9rem;margin-bottom:28px}
 .star-rating{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:6px;margin-bottom:6px}
 .star-rating input{display:none}
@@ -268,7 +270,7 @@ header.nav.scrolled{padding:10px 0}
 .review-consent label{font-size:.85rem;color:#9aa3b5;cursor:pointer}
 .review-success{display:none;text-align:center;padding:40px 20px}
 .review-success .s-icon{font-size:3.5rem;color:var(--accent);margin-bottom:14px}
-.review-success h4{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:8px}
+.review-success h4{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px}
 .review-success p{color:#9aa3b5;font-size:.95rem}
 
 /* Highlight Checkboxes */
@@ -276,16 +278,16 @@ header.nav.scrolled{padding:10px 0}
 .chip-label{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:7px 14px;cursor:pointer;font-size:.83rem;color:#dfe3ec;transition:var(--transition);user-select:none}
 .chip-label:hover{border-color:var(--accent);color:var(--accent)}
 .chip-label input{display:none}
-.chip-label.checked{border-color:var(--accent);background:rgba(201,168,76,.1);color:var(--accent)}
+.chip-label.checked{border-color:var(--accent);background:rgba(139,116,255,.1);color:var(--accent)}
 
 /* Footer */
 footer{background:var(--dark);padding:64px 0 28px}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:44px}
 .footer-brand p{color:#9aa3b5;font-size:.92rem;max-width:300px;margin-top:18px}
 .socials{display:flex;gap:12px;margin-top:20px}
-.socials a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.06);display:grid;place-items:center;color:#cdd3df;transition:var(--transition);font-weight:700;font-size:.85rem;font-family:'Montserrat',sans-serif}
+.socials a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.06);display:grid;place-items:center;color:#cdd3df;transition:var(--transition);font-weight:700;font-size:.85rem;font-family:'Space Grotesk',sans-serif}
 .socials a:hover{background:var(--accent);color:var(--dark)}
-footer h5{font-family:'Montserrat',sans-serif;font-size:1rem;margin-bottom:18px}
+footer h5{font-family:'Space Grotesk',sans-serif;font-size:1rem;margin-bottom:18px}
 footer ul{list-style:none}
 footer ul li{margin-bottom:10px}
 footer ul a{color:#9aa3b5;font-size:.92rem;transition:var(--transition)}
@@ -353,16 +355,16 @@ footer ul a:hover{color:var(--accent)}
   <div class="container hero-grid">
     <div>
       <span class="badge-vet">&#9733; Veteran-Owned &amp; Operated</span>
-      <h1>Technology Solutions with <span class="gold">Military Precision</span></h1>
+      <h1>Technology Solutions with <span class="accent">Military Precision</span></h1>
       <p class="hero-lead">DPTC delivers expert IT consulting, web development, cybersecurity, and digital transformation services that empower your business to operate smarter, faster, and more securely.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
         <a href="#services" class="btn btn-outline">Our Services</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><strong>10+</strong><span>Years Experience</span></div>
-        <div class="stat"><strong>500+</strong><span>Projects Delivered</span></div>
-        <div class="stat"><strong>98%</strong><span>Client Satisfaction</span></div>
+        <div class="stat"><strong>25+</strong><span>Years Combined Experience</span></div>
+        <div class="stat"><strong>77</strong><span>Certifications Earned</span></div>
+        <div class="stat"><strong>5.0&#9733;</strong><span>Client Rating</span></div>
       </div>
     </div>
     <div class="hero-card">
@@ -381,8 +383,8 @@ footer ul a:hover{color:var(--accent)}
     <div>
       <span class="eyebrow">About Us</span>
       <h2 class="section-title" id="about-title">Where Military Discipline Meets Tech Innovation</h2>
-      <p>David Powell founded DPTC after serving in the U.S. military, bringing the same commitment to excellence, integrity, and mission success to every client engagement. With over a decade in IT consulting, we have helped hundreds of businesses navigate digital transformation.</p>
-      <p>Our veteran-owned firm specializes in delivering enterprise-grade solutions that are reliable, secure, and built to scale — on time and on budget.</p>
+      <p>David Powell founded DPTC after 15+ years of honorable service in the U.S. Army, bringing the same commitment to excellence, integrity, and mission success to every client engagement. With more than 25 years of combined military and technology experience — including Fortune 500 technical support and 77 industry certifications — DPTC helps businesses navigate digital transformation with solutions that are reliable, secure, and built to scale.</p>
+      <p>Our veteran-owned firm delivers enterprise-grade solutions on time and on budget — and the work speaks through our 5-star client reviews.</p>
       <ul class="feature-list">
         <li><span class="check">&#10003;</span> Military-grade reliability and accountability</li>
         <li><span class="check">&#10003;</span> Transparent pricing with no hidden fees</li>
@@ -417,10 +419,10 @@ footer ul a:hover{color:var(--accent)}
 <!-- COUNTERS -->
 <section id="stats" class="section">
   <div class="container counter-grid">
-    <div class="counter"><strong data-target="500" data-suffix="+">500+</strong><span>Projects Completed</span></div>
-    <div class="counter"><strong data-target="350" data-suffix="+">350+</strong><span>Happy Clients</span></div>
-    <div class="counter"><strong data-target="10" data-suffix="+">10+</strong><span>Years in Business</span></div>
-    <div class="counter"><strong data-target="98" data-suffix="%">98%</strong><span>Satisfaction Rate</span></div>
+    <div class="counter"><strong data-target="77" data-suffix="">77</strong><span>Certifications Earned</span></div>
+    <div class="counter"><strong data-target="25" data-suffix="+">25+</strong><span>Years Combined Experience</span></div>
+    <div class="counter"><strong data-target="15" data-suffix="+">15+</strong><span>Years U.S. Army Service</span></div>
+    <div class="counter"><strong data-target="24" data-suffix="/7">24/7</strong><span>Emergency Support</span></div>
   </div>
 </section>
 
@@ -658,7 +660,7 @@ footer ul a:hover{color:var(--accent)}
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 David Powell Tech Consulting (DPTC). All rights reserved. &nbsp;|&nbsp; Veteran-Owned &amp; Operated &nbsp;|&nbsp; Orlando, FL</p>
+      <p>&copy; 2026 David Powell Tech Consulting (DPTC). All rights reserved. &nbsp;|&nbsp; Veteran-Owned &amp; Operated &nbsp;|&nbsp; Orlando, FL</p>
     </div>
   </div>
 </footer>
