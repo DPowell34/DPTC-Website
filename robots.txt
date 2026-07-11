@@ -1,1 +1,4 @@
-www.dpowelltc.com
+User-agent: *
+Allow: /
+
+Sitemap: https://www.dpowelltc.com/sitemap.xml
