@@ -25,13 +25,13 @@
 <meta property="og:url" content="https://www.dpowelltc.com/">
 <meta property="og:title" content="DPTC | Veteran-Owned IT Consulting &amp; Web Development in Orlando, FL">
 <meta property="og:description" content="Expert IT consulting, web development, cybersecurity, and digital transformation services delivered with military precision. Serving Orlando &amp; nationwide.">
-<meta property="og:image" content="https://dpowelltc.com/dptc-logo.png">
+<meta property="og:image" content="https://www.dpowelltc.com/dptc-logo.png">
 <meta property="og:image:alt" content="DPTC – David Powell Tech Consulting logo">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DPTC | Veteran-Owned IT Consulting &amp; Web Development in Orlando, FL">
 <meta name="twitter:description" content="Expert IT consulting, web development, cybersecurity, and digital transformation services delivered with military precision. Serving Orlando &amp; nationwide.">
-<meta name="twitter:image" content="https://dpowelltc.com/dptc-logo.png">
+<meta name="twitter:image" content="https://www.dpowelltc.com/dptc-logo.png">
 <meta name="twitter:image:alt" content="DPTC – David Powell Tech Consulting logo">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,12 +42,12 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "@id": "https://dpowelltc.com/#business",
+  "@id": "https://www.dpowelltc.com/#business",
   "name": "David Powell Tech Consulting (DPTC)",
   "alternateName": "DPTC",
-  "url": "https://dpowelltc.com/",
-  "logo": "https://dpowelltc.com/dptc-logo.png",
-  "image": "https://dpowelltc.com/dptc-logo.png",
+  "url": "https://www.dpowelltc.com/",
+  "logo": "https://www.dpowelltc.com/dptc-logo.png",
+  "image": "https://www.dpowelltc.com/dptc-logo.png",
   "description": "Veteran-owned IT consulting, web development, cybersecurity, and digital transformation firm serving Orlando, Florida and clients nationwide.",
   "telephone": "+1-407-795-5538",
   "email": "dapowell1@dpowelltc.com",
@@ -97,7 +97,8 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What services does DPTC offer?", "acceptedAnswer": { "@type": "Answer", "text": "DPTC offers web development, e-commerce builds, website maintenance, cybersecurity audits, IT consulting, social media marketing, logo design, PC construction, cloud hosting, and Google Workspace setup." } },
+    { "@type": "Question", "name": "What services does DPTC offer?", "acceptedAnswer": { "@type": "Answer", "text": "DPTC offers web development, e-commerce builds, website maintenance, cybersecurity audits, IT consulting, social media marketing, missed-call text-back automation for home-service businesses, logo design, PC construction, cloud hosting, and Google Workspace setup." } },
+    { "@type": "Question", "name": "What is Missed-Call Text-Back?", "acceptedAnswer": { "@type": "Answer", "text": "Missed-Call Text-Back automatically sends an instant SMS reply to any call your business can't answer, so the lead starts a text conversation with you instead of calling a competitor. DPTC configures it for pool service and other home-service companies in Orlando and nationwide." } },
     { "@type": "Question", "name": "Where is DPTC located?", "acceptedAnswer": { "@type": "Answer", "text": "DPTC is based in Orlando, Florida and serves clients nationwide, with 24/7 emergency support available." } },
     { "@type": "Question", "name": "Is DPTC veteran-owned?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. DPTC is a veteran-owned and operated business founded by David Powell after serving in the U.S. military." } },
     { "@type": "Question", "name": "How much does a website from DPTC cost?", "acceptedAnswer": { "@type": "Answer", "text": "Website packages start at $999 for a starter site, $1,500 for e-commerce, and $2,500 for a standard multi-page business website. Free consultations are available." } }
@@ -106,7 +107,16 @@
 </script>
 
 <script type="application/ld+json">
-{ "@context": "https://schema.org", "@type": "WebSite", "name": "David Powell Tech Consulting (DPTC)", "url": "https://dpowelltc.com/" }
+{ "@context": "https://schema.org", "@type": "WebSite", "name": "David Powell Tech Consulting (DPTC)", "url": "https://www.dpowelltc.com/" }
+</script>
+
+<!-- Apollo.io Website Visitor Tracking -->
+<script>
+  function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+  o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+  o.onload=function(){window.trackingFunctions.onLoad({appId:"6a39e2562be3fd0018654ea9"})},
+  document.head.appendChild(o)}
+  initApollo();
 </script>
 
 <style>
@@ -568,6 +578,8 @@ footer ul a:hover{color:var(--accent)}
     </div>
     <div class="contact-grid">
       <form class="contact-form" id="contact-form" novalidate>
+        <!-- Honeypot -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-row">
           <div class="field"><label for="contact-first">First Name *</label><input type="text" id="contact-first" name="first_name" autocomplete="given-name" required></div>
           <div class="field"><label for="contact-last">Last Name *</label><input type="text" id="contact-last" name="last_name" autocomplete="family-name" required></div>
@@ -644,10 +656,11 @@ footer ul a:hover{color:var(--accent)}
         <ul>
           <li><a href="#services">Web Development</a></li>
           <li><a href="#services">E-Commerce</a></li>
-          <li><a href="#services">Cybersecurity</a></li>
+          <li><a href="cybersecurity-audit-orlando">Cybersecurity Audit</a></li>
           <li><a href="#services">IT Consulting</a></li>
           <li><a href="#services">Social Media</a></li>
-          <li><a href="pool-service-missed-calls.html">Missed-Call Text-Back</a></li>
+          <li><a href="pool-service-missed-calls">Missed-Call Text-Back (Pool)</a></li>
+          <li><a href="hvac-missed-calls">Missed-Call Text-Back (HVAC)</a></li>
           <li><a href="#services">PC Build</a></li>
         </ul>
       </div>
@@ -692,13 +705,13 @@ const services = [
   { cat:'maintenance', tag:'Maintenance',   name:'Starter Maintenance',             desc:'Monthly plugin updates, security patches, uptime monitoring, and automated backups — peace of mind every month.',                                           price:'$250',   note:'/month'   },
   { cat:'maintenance', tag:'Maintenance',   name:'E-Commerce Maintenance',          desc:'Full e-commerce upkeep — inventory syncs, plugin management, performance optimization, and priority support.',                                             price:'$400',   note:'/month'   },
   { cat:'marketing',   tag:'Marketing',     name:'Social Media Package',            desc:'End-to-end social management: content creation, scheduling, community engagement, and monthly analytics reports.',                                         price:'$2,500', note:'/month'   },
-  { cat:'marketing',   tag:'Marketing',     name:'Missed-Call Text-Back',           desc:'Never lose another job to voicemail. Every missed call gets an instant text reply that starts the conversation — built for pool service and home-service pros.', price:'Quote',  note:'',        link:'pool-service-missed-calls.html', linkText:'Learn More' },
+  { cat:'marketing',   tag:'Marketing',     name:'Missed-Call Text-Back',           desc:'Never lose another job to voicemail. Every missed call gets an instant text reply that starts the conversation — built for pool service and home-service pros.', price:'Quote',  note:'',        link:'pool-service-missed-calls', linkText:'Learn More' },
   { cat:'marketing',   tag:'Marketing',     name:'Logo Design',                     desc:'Custom logo with multiple concepts, revision rounds, and final files in all formats — PNG, SVG, PDF, and EPS.',                                            price:'$250',   note:'one-time' },
   { cat:'technology',  tag:'Technology',    name:'PC Construction',                 desc:'Custom desktop builds tailored to your workflow — gaming rigs, workstations, home offices, or business servers.',                                          price:'Quote',  note:''         },
   { cat:'technology',  tag:'Technology',    name:'Google Workspace Setup',          desc:'Full Workspace config: Gmail, Drive, Meet, Calendar, admin console, and user management for your whole team.',                                             price:'Quote',  note:''         },
   { cat:'technology',  tag:'Technology',    name:'IT Consulting',                   desc:'Strategic IT planning, infrastructure assessment, vendor management, and digital transformation roadmaps.',                                                  price:'Quote',  note:''         },
   { cat:'audits',      tag:'Audits & Fixes',name:'Mobile Responsiveness Audit',     desc:'Detailed audit of your site\'s mobile layout with a documented findings report and full implementation of fixes.',                                        price:'Quote',  note:''         },
-  { cat:'audits',      tag:'Audits & Fixes',name:'Cybersecurity Audit',             desc:'Comprehensive security assessment of your IT infrastructure with a vulnerability report and actionable remediation roadmap.',                               price:'Quote',  note:''         },
+  { cat:'audits',      tag:'Audits & Fixes',name:'Cybersecurity Audit',             desc:'Comprehensive security assessment of your IT infrastructure with a vulnerability report and actionable remediation roadmap.',                               price:'Quote',  note:'',        link:'cybersecurity-audit-orlando', linkText:'Learn More' },
 ];
 
 function renderServices(filter) {
@@ -772,12 +785,26 @@ if (reviewForm) {
   });
 }
 
-// ── Contact Form Demo ──
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+// ── Contact Form Submit ──
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('[type="submit"]');
-  btn.textContent = 'Message Sent! ✔'; btn.disabled = true;
-  setTimeout(() => { btn.textContent='Send Message'; btn.disabled=false; this.reset(); }, 3000);
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const fd = new FormData(this);
+    fd.append('_subject', 'New Contact Lead — dpowelltc.com');
+    const res = await fetch('https://formspree.io/f/xzdldygr', { method:'POST', body:fd, headers:{ Accept:'application/json' } });
+    if (res.ok) {
+      btn.textContent = 'Message Sent! ✔'; this.reset();
+      setTimeout(() => { btn.textContent='Send Message'; btn.disabled=false; }, 4000);
+    } else {
+      btn.textContent='Send Message'; btn.disabled=false;
+      alert('Submission error — please try again or call 407.795.5538.');
+    }
+  } catch {
+    btn.textContent='Send Message'; btn.disabled=false;
+    alert('Network error — please try again or call 407.795.5538.');
+  }
 });
 </script>
 
