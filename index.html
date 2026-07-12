@@ -51,7 +51,7 @@
   "logo": "https://www.dpowelltc.com/dptc-logo.png",
   "image": "https://www.dpowelltc.com/dptc-logo.png",
   "description": "Veteran-owned IT consulting, web development, cybersecurity, and digital transformation firm serving Orlando, Florida and clients nationwide.",
-  "telephone": "+1-407-795-5538",
+  "telephone": "+1-407-674-9203",
   "email": "dapowell1@dpowelltc.com",
   "priceRange": "$$",
   "founder": { "@type": "Person", "name": "David Powell", "jobTitle": "Founder & CEO" },
@@ -334,7 +334,7 @@ footer ul a:hover{color:var(--accent)}
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="tel:+14077955538" class="nav-phone">407.795.5538</a>
+      <a href="tel:+14076749203" class="nav-phone">407.674.9203</a>
       <a href="#contact" class="btn btn-primary">Book Now</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -350,7 +350,7 @@ footer ul a:hover{color:var(--accent)}
   <a href="#services">Services</a>
   <a href="#reviews">Reviews</a>
   <a href="#contact">Contact</a>
-  <a href="tel:+14077955538" style="color:var(--accent)">407.795.5538</a>
+  <a href="tel:+14076749203" style="color:var(--accent)">407.674.9203</a>
 </div>
 
 <main>
@@ -571,39 +571,9 @@ footer ul a:hover{color:var(--accent)}
       <p class="section-intro">Book a free consultation and let's discuss how DPTC can solve your technology challenges.</p>
     </div>
     <div class="contact-grid">
-      <form class="contact-form" id="contact-form" novalidate>
-        <!-- Honeypot -->
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-row">
-          <div class="field"><label for="contact-first">First Name *</label><input type="text" id="contact-first" name="first_name" autocomplete="given-name" required></div>
-          <div class="field"><label for="contact-last">Last Name *</label><input type="text" id="contact-last" name="last_name" autocomplete="family-name" required></div>
-        </div>
-        <div class="field"><label for="contact-email">Email Address *</label><input type="email" id="contact-email" name="email" autocomplete="email" required></div>
-        <div class="field"><label for="contact-phone">Phone Number</label><input type="tel" id="contact-phone" name="phone" autocomplete="tel"></div>
-        <div class="field"><label for="contact-service">Service Needed</label>
-          <select id="contact-service" name="service">
-            <option value="">Select a service…</option>
-            <option>Standard Website</option>
-            <option>Starter Website Package</option>
-            <option>E-Commerce Package</option>
-            <option>Social Media Package</option>
-            <option>Missed-Call Text-Back (Home Services)</option>
-            <option>Starter Maintenance</option>
-            <option>E-Commerce Maintenance</option>
-            <option>Logo Design</option>
-            <option>PC Construction</option>
-            <option>Google Workspace Setup</option>
-            <option>Mobile Responsiveness Audit &amp; Fixes</option>
-            <option>Cybersecurity Audit</option>
-            <option>IT Consulting</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="field"><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="4" placeholder="Tell us about your project…"></textarea></div>
-        <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
-      </form>
+      <div id="ghl-contact-form"><iframe src="https://api.leadconnectorhq.com/widget/form/6qjIgfmREaRrkJVVbVIN" style="width:100%;height:600px;border:none;border-radius:4px" id="inline-6qjIgfmREaRrkJVVbVIN" data-layout="{&quot;id&quot;:&quot;INLINE&quot;}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Contact Us - DPowell Tech Consultant" data-height="600" data-layout-iframe-id="inline-6qjIgfmREaRrkJVVbVIN" data-form-id="6qjIgfmREaRrkJVVbVIN" title="Contact Us - DPowell Tech Consultant"></iframe></div><script src="https://link.msgsndr.com/js/form_embed.js"></script>
       <div class="contact-info">
-        <div class="info-item"><div class="ic">&#9990;</div><div><h3>Phone</h3><a href="tel:+14077955538">407.795.5538</a></div></div>
+        <div class="info-item"><div class="ic">&#9990;</div><div><h3>Phone</h3><a href="tel:+14076749203">407.674.9203</a></div></div>
         <div class="info-item"><div class="ic">&#9993;</div><div><h3>Email</h3><a href="mailto:dapowell1@dpowelltc.com">dapowell1@dpowelltc.com</a></div></div>
         <div class="info-item"><div class="ic">&#8982;</div><div><h3>Location</h3><p>Orlando, Florida &amp; Nationwide</p></div></div>
         <div class="hours-box">
@@ -661,7 +631,7 @@ footer ul a:hover{color:var(--accent)}
       <div>
         <h5>Contact</h5>
         <ul>
-          <li><a href="tel:+14077955538">(407) 795-5538</a></li>
+          <li><a href="tel:+14076749203">(407) 674-9203</a></li>
           <li><a href="mailto:dapowell1@dpowelltc.com">dapowell1@dpowelltc.com</a></li>
           <li><a href="#contact">Free Consultation</a></li>
         </ul>
@@ -779,27 +749,6 @@ if (reviewForm) {
   });
 }
 
-// ── Contact Form Submit ──
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('[type="submit"]');
-  btn.disabled = true; btn.textContent = 'Sending…';
-  try {
-    const fd = new FormData(this);
-    fd.append('_subject', 'New Contact Lead — dpowelltc.com');
-    const res = await fetch('https://formspree.io/f/xzdldygr', { method:'POST', body:fd, headers:{ Accept:'application/json' } });
-    if (res.ok) {
-      btn.textContent = 'Message Sent! ✔'; this.reset();
-      setTimeout(() => { btn.textContent='Send Message'; btn.disabled=false; }, 4000);
-    } else {
-      btn.textContent='Send Message'; btn.disabled=false;
-      alert('Submission error — please try again or call 407.795.5538.');
-    }
-  } catch {
-    btn.textContent='Send Message'; btn.disabled=false;
-    alert('Network error — please try again or call 407.795.5538.');
-  }
-});
 </script>
 
 
