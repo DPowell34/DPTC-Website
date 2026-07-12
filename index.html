@@ -70,7 +70,8 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce Package" }, "price": "1500", "priceCurrency": "USD" },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starter Maintenance" }, "price": "250", "priceCurrency": "USD" },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Package" }, "price": "2500", "priceCurrency": "USD" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Logo Design" }, "price": "250", "priceCurrency": "USD" }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Logo Design" }, "price": "250", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Missed-Call Text-Back (Home Services)", "url": "https://www.dpowelltc.com/pool-service-missed-calls" } }
     ]
   }
 }
@@ -490,6 +491,7 @@ footer ul a:hover{color:var(--accent)}
             <option>E-Commerce Maintenance</option>
             <option>Starter Maintenance</option>
             <option>Social Media Package</option>
+            <option>Missed-Call Text-Back (Home Services)</option>
             <option>Logo Design</option>
             <option>PC Construction</option>
             <option>Google Workspace Setup</option>
@@ -579,6 +581,7 @@ footer ul a:hover{color:var(--accent)}
             <option>Starter Website Package</option>
             <option>E-Commerce Package</option>
             <option>Social Media Package</option>
+            <option>Missed-Call Text-Back (Home Services)</option>
             <option>Starter Maintenance</option>
             <option>E-Commerce Maintenance</option>
             <option>Logo Design</option>
@@ -644,6 +647,7 @@ footer ul a:hover{color:var(--accent)}
           <li><a href="#services">Cybersecurity</a></li>
           <li><a href="#services">IT Consulting</a></li>
           <li><a href="#services">Social Media</a></li>
+          <li><a href="pool-service-missed-calls.html">Missed-Call Text-Back</a></li>
           <li><a href="#services">PC Build</a></li>
         </ul>
       </div>
@@ -688,6 +692,7 @@ const services = [
   { cat:'maintenance', tag:'Maintenance',   name:'Starter Maintenance',             desc:'Monthly plugin updates, security patches, uptime monitoring, and automated backups — peace of mind every month.',                                           price:'$250',   note:'/month'   },
   { cat:'maintenance', tag:'Maintenance',   name:'E-Commerce Maintenance',          desc:'Full e-commerce upkeep — inventory syncs, plugin management, performance optimization, and priority support.',                                             price:'$400',   note:'/month'   },
   { cat:'marketing',   tag:'Marketing',     name:'Social Media Package',            desc:'End-to-end social management: content creation, scheduling, community engagement, and monthly analytics reports.',                                         price:'$2,500', note:'/month'   },
+  { cat:'marketing',   tag:'Marketing',     name:'Missed-Call Text-Back',           desc:'Never lose another job to voicemail. Every missed call gets an instant text reply that starts the conversation — built for pool service and home-service pros.', price:'Quote',  note:'',        link:'pool-service-missed-calls.html', linkText:'Learn More' },
   { cat:'marketing',   tag:'Marketing',     name:'Logo Design',                     desc:'Custom logo with multiple concepts, revision rounds, and final files in all formats — PNG, SVG, PDF, and EPS.',                                            price:'$250',   note:'one-time' },
   { cat:'technology',  tag:'Technology',    name:'PC Construction',                 desc:'Custom desktop builds tailored to your workflow — gaming rigs, workstations, home offices, or business servers.',                                          price:'Quote',  note:''         },
   { cat:'technology',  tag:'Technology',    name:'Google Workspace Setup',          desc:'Full Workspace config: Gmail, Drive, Meet, Calendar, admin console, and user management for your whole team.',                                             price:'Quote',  note:''         },
@@ -705,7 +710,7 @@ function renderServices(filter) {
       <h3>${s.name}</h3>
       <p>${s.desc}</p>
       <div class="price">${s.price}${s.note ? ` <small>${s.note}</small>` : ''}</div>
-      <a href="#contact" class="btn btn-primary">Get Started</a>
+      <a href="${s.link || '#contact'}" class="btn btn-primary">${s.linkText || 'Get Started'}</a>
     </div>`).join('');
 }
 renderServices('all');
