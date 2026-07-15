@@ -441,6 +441,16 @@ footer ul a:hover{color:var(--accent)}
 const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/GIa29GjprX93oO9rEskb/webhook-trigger/b518495f-73ed-4e13-b1e0-1dcc0f1bdb6d";
 //  Where the "Book your free demo" button points (your GHL contact form).
 const BOOKING_URL = "index.html#contact";
+//  NOTION_LEAD_WEBHOOK_URL: optional. Mirrors each lead into the Notion "Lead
+//    Pipeline" database (Revenue Command Center) so leads show up in Notion too,
+//    not just GHL. Setup: create a Zapier/Make "Catch Hook", add a "Create
+//    Database Item" step into Lead Pipeline, and map the payload fields below:
+//      email→Email · phone→Mobile · trade→Trade · missed_calls_mo→"Missed Calls/mo (est)"
+//      · monthly_value_high→"Monthly Value (est)" · sms_consent→"SMS Consent"
+//      · consent_text + consent_ts→"Consent Record" · source→Source ("Audit Page")
+//      · Stage→"New Lead"
+//    Paste the Catch Hook URL here. Leave "" to skip — GHL still gets the lead.
+const NOTION_LEAD_WEBHOOK_URL = "";
 // ══════════════════════════════════════════════════════════════════════════
 
 const WORKDAYS = 22;      // working days per month (stated assumption)
@@ -490,14 +500,29 @@ $("capture").addEventListener("submit", async e=>{
   btn.disabled = true; btn.textContent = "Sending…";
 
   const opt = $("trade").selectedOptions[0];
+  const callsPerDay = +$("calls").value;
+  const avgJob = +$("avg").value;
+  const missedMo = Math.round(callsPerDay * missFrac * WORKDAYS);
+  const valLow  = Math.round(missedMo * BOOK_LOW  * avgJob);
+  const valHigh = Math.round(missedMo * BOOK_HIGH * avgJob);
+  const smsConsent = $("textme").checked;
+  // Capture the exact on-page consent wording for the TCPA audit trail (no invented text).
+  const consentLabel = (document.querySelector('label[for="textme"]') || $("textme").closest("label"));
+  const consentText = smsConsent ? (consentLabel ? consentLabel.innerText.trim() : "") : "";
   const payload = {
     email: $("email").value,
     phone: $("phone").value,
-    text_opt_in: $("textme").checked,
+    text_opt_in: smsConsent,
+    sms_consent: smsConsent,
+    consent_text: consentText,
+    consent_ts: new Date().toISOString(),
     trade: $("trade").value,
-    calls_per_day: +$("calls").value,
+    calls_per_day: callsPerDay,
     miss_level: missFrac,
-    avg_job_value: +$("avg").value,
+    avg_job_value: avgJob,
+    missed_calls_mo: missedMo,
+    monthly_value_low: valLow,
+    monthly_value_high: valHigh,
     leak_range: $("rangeText").textContent,
     source: "Missed-Call Audit",
     page: location.pathname
@@ -511,6 +536,15 @@ $("capture").addEventListener("submit", async e=>{
     }
   } catch (err) {
     console.warn("GHL webhook error (lead may still have delivered):", err);
+  }
+
+  // ── Mirror to Notion Lead Pipeline (optional; independent of GHL) ──
+  if (NOTION_LEAD_WEBHOOK_URL) {
+    try {
+      await fetch(NOTION_LEAD_WEBHOOK_URL, { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify(payload) });
+    } catch (err) {
+      console.warn("Notion bridge webhook error (GHL lead unaffected):", err);
+    }
   }
 
   $("bookBtn").href = BOOKING_URL;
