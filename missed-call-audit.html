@@ -467,13 +467,19 @@ footer ul a:hover{color:var(--accent)}
 // ══════════════════════════════════════════════════════════════════════════
 //  CONFIG — set these two before going live
 // ══════════════════════════════════════════════════════════════════════════
-//  GHL_WEBHOOK_URL: your GoHighLevel Inbound Webhook URL.
-//    Create it in GHL: Automation → Workflows → new workflow →
-//    trigger "Inbound Webhook" → add action "Create/Update Contact" and map
-//    the fields below (email, phone, trade, leak_range, etc.). Then (optional)
-//    add your Missed-Call Text-Back / nurture actions. Paste the trigger URL here.
-//  Until it's set, the form runs in DEMO mode (logs to console, still shows success).
-const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/GIa29GjprX93oO9rEskb/webhook-trigger/b518495f-73ed-4e13-b1e0-1dcc0f1bdb6d";
+//  FORMSPREE_ENDPOINT: PRIMARY lead delivery. Works on any plan, free, no
+//    automation tier required. Emails each lead to the form's notification address.
+//  ⚠️ NOTE (2026-07-16): xzdldygr is ALSO the review form on index.html, so audit
+//    leads and customer reviews share one inbox AND one ~50/month free quota.
+//    They're distinguishable by the "_subject" line and the "source" field below.
+//    To split them cleanly later: make a new Formspree form and swap the ID here.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzdldygr";
+//  GHL_WEBHOOK_URL: GoHighLevel Inbound Webhook — requires a GHL plan WITH
+//    Workflows/Automation, which DPTC does NOT have as of 2026-07-16. Left empty
+//    so it's skipped. If you upgrade, paste the trigger URL back in and leads will
+//    be sent to BOTH Formspree and GHL. Your previously-created trigger, saved:
+//    https://services.leadconnectorhq.com/hooks/GIa29GjprX93oO9rEskb/webhook-trigger/b518495f-73ed-4e13-b1e0-1dcc0f1bdb6d
+const GHL_WEBHOOK_URL = "";
 //  Where the "Book your free demo" button points (your GHL contact form).
 const BOOKING_URL = "index.html#contact";
 //  NOTION_LEAD_WEBHOOK_URL: optional. Mirrors each lead into the Notion "Lead
@@ -527,7 +533,7 @@ document.querySelectorAll("#miss button").forEach(b=>{
 $("calls").addEventListener("input", recalc);
 $("avg").addEventListener("input", recalc);
 
-// ── Lead submit → GoHighLevel ──
+// ── Lead submit → Formspree (primary) → GHL (optional) → Notion (optional) ──
 $("capture").addEventListener("submit", async e=>{
   e.preventDefault();
   if($("capture").querySelector('[name="_gotcha"]').value) return;   // honeypot
@@ -563,14 +569,37 @@ $("capture").addEventListener("submit", async e=>{
     page: location.pathname
   };
 
+  // ── PRIMARY delivery → Formspree. Returns a readable response, so unlike the
+  //    old GHL path we can tell the truth about whether it actually sent.
+  let delivered = false;
   try {
-    if (GHL_WEBHOOK_URL) {
-      await fetch(GHL_WEBHOOK_URL, { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify(payload) });
-    } else {
-      console.log("DEMO mode — lead captured (not sent):", payload);
-    }
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(Object.assign({
+        _subject: "Missed-Call Audit lead — " + String(payload.trade).toUpperCase() + " — " + payload.leak_range
+      }, payload))
+    });
+    delivered = res.ok;
+    if (!res.ok) console.warn("Formspree responded with status", res.status);
   } catch (err) {
-    console.warn("GHL webhook error (lead may still have delivered):", err);
+    console.warn("Formspree error:", err);
+  }
+
+  // Never show "Sent" if it wasn't. Let them retry or reach a human.
+  if (!delivered) {
+    btn.disabled = false; btn.textContent = "Get my Job Leak Report →";
+    alert("Sorry — something went wrong sending your report. Please try again, or call 407.674.9203 and we'll run your numbers with you.");
+    return;
+  }
+
+  // ── Optional: also push to GoHighLevel once the plan supports Workflows ──
+  if (GHL_WEBHOOK_URL) {
+    try {
+      await fetch(GHL_WEBHOOK_URL, { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify(payload) });
+    } catch (err) {
+      console.warn("GHL webhook error (Formspree lead already delivered):", err);
+    }
   }
 
   // ── Mirror to Notion Lead Pipeline (optional; independent of GHL) ──
