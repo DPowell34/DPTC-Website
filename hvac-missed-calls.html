@@ -233,6 +233,23 @@ footer ul a:hover{color:var(--accent)}
 @media(max-width:560px){
   .steps-grid,.footer-grid{grid-template-columns:1fr}
 }
+
+/* Pricing */
+.price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:880px;margin:0 auto}
+.price-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:34px;display:flex;flex-direction:column;position:relative}
+.price-card.featured{border-color:var(--accent);box-shadow:0 8px 40px rgba(91,46,255,.25)}
+.price-card .tier{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;margin-bottom:6px}
+.price-card .tier-sub{color:#aeb6c6;font-size:.85rem;margin-bottom:20px}
+.price-amt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.6rem;color:var(--white);line-height:1}
+.price-amt span{font-size:1rem;color:#aeb6c6;font-weight:500}
+.price-setup{color:var(--pop);font-size:.9rem;margin:8px 0 22px;font-weight:600}
+.price-feats{list-style:none;margin-bottom:26px;flex:1}
+.price-feats li{display:flex;gap:10px;align-items:flex-start;margin-bottom:11px;color:#dfe3ec;font-size:.92rem}
+.price-feats .ck{color:var(--pop);flex:none;font-weight:700}
+.price-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent-solid);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;padding:5px 16px;border-radius:20px;white-space:nowrap}
+.guarantee-banner{max-width:880px;margin:28px auto 0;background:rgba(200,245,66,.08);border:1px solid rgba(200,245,66,.35);border-radius:14px;padding:22px 26px;text-align:center;color:#e7eaf1;font-size:.95rem}
+.guarantee-banner strong{color:var(--pop);font-family:'Space Grotesk',sans-serif}
+@media(max-width:760px){.price-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -354,6 +371,52 @@ footer ul a:hover{color:var(--accent)}
       <div class="roi-row"><span>Saved calls needed to break even</span><strong>1 /mo</strong></div>
       <p class="roi-note">Example figures based on common Central Florida HVAC service rates. Your numbers may vary — bring your call volume to the demo and we'll run the math together.</p>
     </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section" aria-labelledby="pricing-title">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Plans &amp; Pricing</span>
+      <h2 class="section-title" id="pricing-title">Simple, Transparent Pricing</h2>
+      <p class="section-intro">Two ways in. Month-to-month, no long-term contract. Done-for-you setup included in every plan.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="tier">Text-Back Starter</div>
+        <div class="tier-sub">Plug the leak, cheap — and prove it works.</div>
+        <div class="price-amt">$197<span>/mo</span></div>
+        <div class="price-setup">+ $497 one-time setup</div>
+        <ul class="price-feats">
+          <li><span class="ck">&#10003;</span> Missed-Call Text-Back within 60 seconds</li>
+          <li><span class="ck">&#10003;</span> One-tap booking link in every text</li>
+          <li><span class="ck">&#10003;</span> Monthly Recovery Scoreboard (call counts)</li>
+          <li><span class="ck">&#10003;</span> Keep your number &middot; done-for-you setup</li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-outline">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular</div>
+        <div class="tier">Full Recovery System</div>
+        <div class="tier-sub">Recover <em>and</em> convert every missed call.</div>
+        <div class="price-amt">$397<span>/mo</span></div>
+        <div class="price-setup">+ $797 one-time setup</div>
+        <ul class="price-feats">
+          <li><span class="ck">&#10003;</span> <strong>Everything in Starter, plus:</strong></li>
+          <li><span class="ck">&#10003;</span> Automated multi-day follow-up</li>
+          <li><span class="ck">&#10003;</span> Seasonal reactivation blasts to past customers</li>
+          <li><span class="ck">&#10003;</span> Financing link built into the text-back</li>
+          <li><span class="ck">&#10003;</span> After-hours emergency routing</li>
+          <li><span class="ck">&#10003;</span> Review Engine + full Scoreboard (names &amp; bookings)</li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+    <div class="guarantee-banner">
+      <strong>90-Day Recovery Guarantee.</strong> If your monthly scoreboard doesn't show us recovering missed-call leads you were losing, you don't pay another dime until it does. <a href="missed-call-audit" style="color:var(--accent)">Start with a free Missed-Lead Audit &rarr;</a>
+    </div>
+    <p class="roi-note center" style="max-width:640px;margin:22px auto 0">Your text-back goes live once carrier registration (A2P 10DLC) clears — typically 1&ndash;3 weeks. We file it day one and build everything else while it processes.</p>
   </div>
 </section>
 
