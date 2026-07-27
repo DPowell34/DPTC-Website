@@ -515,5 +515,25 @@ const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
 </script>
   <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a53b5ebc9f31412b2928f7c" data-source="WEB_USER"></script>
+  <script>
+  /* DPTC conversion event tracking — fires GA4 (gtag) + dataLayer on phone + CTA clicks */
+  (function () {
+    function track(name, params) {
+      try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch (e) {}
+      try { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: name }, params || {})); } catch (e) {}
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      var text = (a.textContent || '').trim().slice(0, 80);
+      if (href.indexOf('tel:') === 0) {
+        track('phone_call_click', { link_url: href, link_text: text });
+      } else if (/#contact/.test(href) || /book|demo|consult|audit|assessment|get started|book now/i.test(text)) {
+        track('cta_click', { link_url: href, link_text: text });
+      }
+    }, true);
+  })();
+  </script>
 </body>
 </html>
