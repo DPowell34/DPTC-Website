@@ -17,8 +17,8 @@ Pages reviewed: `/` `/missed-call-audit` `/hvac-missed-calls`
 - **Titles:** all 9 pages 54–60 chars, unique, keyword-targeted, `| DPTC` brand
   suffix. Good.
 - **One H1 per page**, all unique and descriptive.
-- **Phone NAP is clean:** `(407) 795-5538` / `407.795.5538` / `tel:+14077955538`
-  / schema `+1-407-795-5538` on every page. No trace of the old `674-9203`.
+- **Phone NAP is clean:** `(407) 269-1580` / `407.269.1580` / `tel:+14072691580`
+  / schema `+1-407-269-1580` on every page. No trace of the old `674-9203`.
 - **Image alt text:** every `<img>` sampled has an `alt` attribute.
 - **Viewport** present and correct on all pages (mobile-ready).
 - **Analytics:** GTM + GA4 on all 9 indexable pages.
