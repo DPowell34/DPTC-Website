@@ -610,7 +610,60 @@ footer ul a:hover{color:var(--accent)}
       <p class="section-intro">Book a free consultation and let's discuss how DPTC can solve your technology challenges.</p>
     </div>
     <div class="contact-grid">
-      <div id="ghl-contact-form"><iframe src="https://api.leadconnectorhq.com/widget/form/6qjIgfmREaRrkJVVbVIN" style="width:100%;height:600px;border:none;border-radius:4px" id="inline-6qjIgfmREaRrkJVVbVIN" data-layout="{&quot;id&quot;:&quot;INLINE&quot;}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Contact Us - David Powell Tech Consulting" data-height="600" data-layout-iframe-id="inline-6qjIgfmREaRrkJVVbVIN" data-form-id="6qjIgfmREaRrkJVVbVIN" title="Contact Us - David Powell Tech Consulting"></iframe></div><script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      <!-- Owned contact form → posts to leads.dpowelltc.com (Postgres + Slack + email + CRM). Replaces the GoHighLevel iframe (KAN-85). -->
+      <style>
+        .dptc-cform{display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:24px}
+        .dptc-cform .cf-row{display:flex;gap:14px;flex-wrap:wrap}
+        .dptc-cform .cf-row label{flex:1;min-width:180px}
+        .dptc-cform label{display:flex;flex-direction:column;gap:6px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.85rem;color:#c7cdd9}
+        .dptc-cform label span{color:var(--accent-light)}
+        .dptc-cform input,.dptc-cform textarea{background:rgba(13,21,38,.6);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:12px 14px;color:#fff;font-family:'Inter',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s}
+        .dptc-cform input:focus,.dptc-cform textarea:focus{border-color:var(--accent)}
+        .dptc-cform .dptc-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+        .dptc-cform .cf-msg{margin:0;font-size:.9rem;min-height:1.2em}
+        .dptc-cform .cf-msg.ok{color:var(--pop)}
+        .dptc-cform .cf-msg.err{color:#ff8a8a}
+      </style>
+      <form id="dptc-contact-form" class="dptc-cform" novalidate>
+        <input type="text" name="company_website" class="dptc-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="cf-row">
+          <label>Name <span>*</span><input type="text" name="name" autocomplete="name" required></label>
+          <label>Business<input type="text" name="business_name" autocomplete="organization"></label>
+        </div>
+        <div class="cf-row">
+          <label>Email <span>*</span><input type="email" name="email" autocomplete="email" required></label>
+          <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
+        </div>
+        <label>How can we help? <span>*</span><textarea name="purpose" rows="4" required placeholder="Tell us about your project or challenge…"></textarea></label>
+        <button type="submit" class="btn btn-primary" style="width:100%">Request My Free Consultation</button>
+        <p class="cf-msg" id="cf-msg" role="status" aria-live="polite"></p>
+      </form>
+      <script>
+        (function(){
+          var f=document.getElementById('dptc-contact-form'); if(!f) return;
+          var msg=document.getElementById('cf-msg');
+          f.addEventListener('submit',async function(e){
+            e.preventDefault();
+            if(f.company_website.value) return;                 // honeypot
+            msg.className='cf-msg'; msg.textContent='';
+            if(!f.name.value.trim()||!f.email.value.trim()){ msg.className='cf-msg err'; msg.textContent='Please add your name and email.'; return; }
+            var btn=f.querySelector('[type=submit]'); btn.disabled=true; btn.textContent='Sending…';
+            var q=new URLSearchParams(location.search);
+            var data={ name:f.name.value.trim(), business_name:f.business_name.value.trim(),
+              email:f.email.value.trim(), phone:f.phone.value.trim(), purpose:f.purpose.value.trim(),
+              source:'homepage-contact', project_type:'General inquiry',
+              utm_source:q.get('utm_source')||'', utm_medium:q.get('utm_medium')||'', utm_campaign:q.get('utm_campaign')||'',
+              utm_content:q.get('utm_content')||'', utm_term:q.get('utm_term')||'',
+              referrer:document.referrer||'', landing_page:location.pathname+location.search };
+            try{
+              var res=await fetch('https://leads.dpowelltc.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+              var j=await res.json().catch(function(){return {};});
+              if(res.ok&&j.ok){ f.reset(); msg.className='cf-msg ok'; msg.textContent='Thanks — we got it. David will reach out shortly.'; if(window.gtag) gtag('event','generate_lead',{form:'homepage-contact'}); }
+              else throw new Error(j&&j.error||'failed');
+            }catch(err){ msg.className='cf-msg err'; msg.textContent='Something went wrong — please email dapowell1@dpowelltc.com or call 407.269.1580.'; btn.disabled=false; btn.textContent='Request My Free Consultation'; }
+          });
+        })();
+      </script>
       <div class="contact-info">
         <div class="info-item"><div class="ic">&#9990;</div><div><h3>Phone</h3><a href="tel:+14072691580">407.269.1580</a></div></div>
         <div class="info-item"><div class="ic">&#9993;</div><div><h3>Email</h3><a href="mailto:dapowell1@dpowelltc.com">dapowell1@dpowelltc.com</a></div></div>
@@ -842,7 +895,6 @@ if (reviewForm) {
   startAuto();
 })();
 </script>
-  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a53b5ebc9f31412b2928f7c" data-source="WEB_USER"></script>
   <script>
   /* DPTC conversion event tracking — fires GA4 (gtag) + dataLayer on phone + CTA clicks */
   (function () {

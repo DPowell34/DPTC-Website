@@ -87,7 +87,7 @@
     {
       "@type": "Question",
       "name": "Do I need a new phone number to use Missed-Call Text-Back?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. It works with your existing business number, and nothing about how you take calls changes." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No. You keep your existing business number — the automated text-back sends from a dedicated business texting line we set up, so there is nothing to port or replace." }
     },
     {
       "@type": "Question",
@@ -470,35 +470,14 @@ footer ul a:hover{color:var(--accent)}
 // ══════════════════════════════════════════════════════════════════════════
 //  CONFIG — set these two before going live
 // ══════════════════════════════════════════════════════════════════════════
-//  FORMSPREE_ENDPOINT: PRIMARY lead delivery. Works on any plan, free, no
-//    automation tier required. Emails each lead to the form's notification address.
-//  ⚠️ NOTE (2026-07-16): xzdldygr is ALSO the review form on index.html, so audit
-//    leads and customer reviews share one inbox AND one ~50/month free quota.
-//    They're distinguishable by the "_subject" line and the "source" field below.
-//    To split them cleanly later: make a new Formspree form and swap the ID here.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykrlabo";  // DEPRECATED — unowned, leads were lost (KAN-82). No longer used.
 //  LEAD_ENDPOINT: OWNED delivery → leads.dpowelltc.com receiver (Postgres +
-//  Slack card + email + CRM/admin console + desktop Lead Card). One system of
-//  record David controls. Fixes KAN-82; supersedes the Formspree/GHL paths.
+//    Slack card + email + CRM/admin console + desktop Lead Card). One system of
+//    record David controls. Fixes KAN-82; replaced the unowned Formspree form
+//    (leads were being lost) and the GoHighLevel path (KAN-85).
 const LEAD_ENDPOINT = "https://leads.dpowelltc.com/submit";
-//  GHL_WEBHOOK_URL: GoHighLevel Inbound Webhook — requires a GHL plan WITH
-//    Workflows/Automation, which DPTC does NOT have as of 2026-07-16. Left empty
-//    so it's skipped. If you upgrade, paste the trigger URL back in and leads will
-//    be sent to BOTH Formspree and GHL. Your previously-created trigger, saved:
-//    https://services.leadconnectorhq.com/hooks/GIa29GjprX93oO9rEskb/webhook-trigger/b518495f-73ed-4e13-b1e0-1dcc0f1bdb6d
-const GHL_WEBHOOK_URL = "";
-//  Where the "Book your free demo" button points (your GHL contact form).
-const BOOKING_URL = "index.html#contact";
-//  NOTION_LEAD_WEBHOOK_URL: optional. Mirrors each lead into the Notion "Lead
-//    Pipeline" database (Revenue Command Center) so leads show up in Notion too,
-//    not just GHL. Setup: create a Zapier/Make "Catch Hook", add a "Create
-//    Database Item" step into Lead Pipeline, and map the payload fields below:
-//      email→Email · phone→Mobile · trade→Trade · missed_calls_mo→"Missed Calls/mo (est)"
-//      · monthly_value_high→"Monthly Value (est)" · sms_consent→"SMS Consent"
-//      · consent_text + consent_ts→"Consent Record" · source→Source ("Audit Page")
-//      · Stage→"New Lead"
-//    Paste the Catch Hook URL here. Leave "" to skip — GHL still gets the lead.
-const NOTION_LEAD_WEBHOOK_URL = "";
+//  Where the "Book your free demo" button points — Google Calendar booking
+//    (no longer routes into a GoHighLevel form; KAN-85).
+const BOOKING_URL = "https://calendar.app.google/B52HFvkEmZ1oeyHr6";
 // ══════════════════════════════════════════════════════════════════════════
 
 const WORKDAYS = 22;      // working days per month (stated assumption)
@@ -632,24 +611,6 @@ $("capture").addEventListener("submit", async e=>{
     return;
   }
 
-  // ── Optional: also push to GoHighLevel once the plan supports Workflows ──
-  if (GHL_WEBHOOK_URL) {
-    try {
-      await fetch(GHL_WEBHOOK_URL, { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify(payload) });
-    } catch (err) {
-      console.warn("GHL webhook error (Formspree lead already delivered):", err);
-    }
-  }
-
-  // ── Mirror to Notion Lead Pipeline (optional; independent of GHL) ──
-  if (NOTION_LEAD_WEBHOOK_URL) {
-    try {
-      await fetch(NOTION_LEAD_WEBHOOK_URL, { method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify(payload) });
-    } catch (err) {
-      console.warn("Notion bridge webhook error (GHL lead unaffected):", err);
-    }
-  }
-
   $("bookBtn").href = BOOKING_URL;
   $("confText").textContent = ($("textme").checked && $("phone").value) ? " (and your texts)" : "";
   $("capture").style.display = "none";
@@ -673,7 +634,6 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeM
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
 </script>
-  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a53b5ebc9f31412b2928f7c" data-source="WEB_USER"></script>
   <script>
   /* DPTC conversion event tracking — fires GA4 (gtag) + dataLayer on phone + CTA clicks */
   (function () {
