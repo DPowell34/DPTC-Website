@@ -476,7 +476,11 @@ footer ul a:hover{color:var(--accent)}
 //    leads and customer reviews share one inbox AND one ~50/month free quota.
 //    They're distinguishable by the "_subject" line and the "source" field below.
 //    To split them cleanly later: make a new Formspree form and swap the ID here.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykrlabo";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykrlabo";  // DEPRECATED — unowned, leads were lost (KAN-82). No longer used.
+//  LEAD_ENDPOINT: OWNED delivery → leads.dpowelltc.com receiver (Postgres +
+//  Slack card + email + CRM/admin console + desktop Lead Card). One system of
+//  record David controls. Fixes KAN-82; supersedes the Formspree/GHL paths.
+const LEAD_ENDPOINT = "https://leads.dpowelltc.com/submit";
 //  GHL_WEBHOOK_URL: GoHighLevel Inbound Webhook — requires a GHL plan WITH
 //    Workflows/Automation, which DPTC does NOT have as of 2026-07-16. Left empty
 //    so it's skipped. If you upgrade, paste the trigger URL back in and leads will
@@ -553,40 +557,72 @@ $("capture").addEventListener("submit", async e=>{
   // Capture the exact on-page consent wording for the TCPA audit trail (no invented text).
   const consentLabel = (document.querySelector('label[for="textme"]') || $("textme").closest("label"));
   const consentText = smsConsent ? (consentLabel ? consentLabel.innerText.trim() : "") : "";
+  // The owned receiver requires name+email. The audit form only asks for email +
+  // phone (kept deliberately low-friction), so synthesize a readable name from the
+  // email local-part; the trade + full leak math ride along in purpose/raw.
+  const tradeLabel = opt ? opt.text : $("trade").value;
+  const emailVal   = $("email").value.trim();
+  const nameGuess  = ((emailVal.split("@")[0] || "Audit lead")
+                        .replace(/[._-]+/g, " ").trim() || "Audit lead")
+                        .replace(/\b\w/g, c => c.toUpperCase());
+  const leak = ($("rangeText").textContent || "").replace(/\s+/g, " ").trim();
+  const q = new URLSearchParams(location.search);   // UTM attribution from the ad/post link
+  const purpose =
+    `Missed-Call Audit — ${tradeLabel}. ~${callsPerDay} calls/day, miss level ` +
+    `${Math.round(missFrac * 100)}%, avg job $${avgJob}. Est. leak ${leak} ` +
+    `(${missedMo} missed calls/mo, $${valLow}–$${valHigh}). SMS opt-in: ${smsConsent ? "YES" : "no"}.`;
+
   const payload = {
-    email: $("email").value,
+    // ── fields the receiver maps to CRM columns ──
+    name: nameGuess,
+    email: emailVal,
     phone: $("phone").value,
+    business_name: tradeLabel,
+    project_type: "Missed-Call Audit",
+    purpose: purpose,
+    notes: smsConsent ? ("SMS consent captured: \"" + consentText + "\" @ " + new Date().toISOString()) : "",
+    source: "Missed-Call Audit",
+    referral_source: q.get("utm_source") || "",
+    // ── attribution ──
+    utm_source: q.get("utm_source") || "",
+    utm_medium: q.get("utm_medium") || "",
+    utm_campaign: q.get("utm_campaign") || "",
+    utm_content: q.get("utm_content") || "",
+    utm_term: q.get("utm_term") || "",
+    referrer: document.referrer || "",
+    landing_page: location.pathname + location.search,
+    // ── audit specifics — preserved verbatim in the receiver's `raw` JSON column ──
     text_opt_in: smsConsent,
     sms_consent: smsConsent,
     consent_text: consentText,
-    consent_ts: new Date().toISOString(),
+    consent_ts: smsConsent ? new Date().toISOString() : "",
     trade: $("trade").value,
+    trade_label: tradeLabel,
     calls_per_day: callsPerDay,
     miss_level: missFrac,
     avg_job_value: avgJob,
     missed_calls_mo: missedMo,
     monthly_value_low: valLow,
     monthly_value_high: valHigh,
-    leak_range: $("rangeText").textContent,
-    source: "Missed-Call Audit",
+    leak_range: leak,
     page: location.pathname
   };
 
-  // ── PRIMARY delivery → Formspree. Returns a readable response, so unlike the
-  //    old GHL path we can tell the truth about whether it actually sent.
+  // ── PRIMARY delivery → owned leads.dpowelltc.com pipeline. Returns {ok,id},
+  //    so (like Formspree but unlike the old GHL path) we can tell the truth
+  //    about whether it actually sent — and the lead lands in a store David owns.
   let delivered = false;
   try {
-    const res = await fetch(FORMSPREE_ENDPOINT, {
+    const res = await fetch(LEAD_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify(Object.assign({
-        _subject: "Missed-Call Audit lead — " + String(payload.trade).toUpperCase() + " — " + payload.leak_range
-      }, payload))
+      body: JSON.stringify(payload)
     });
-    delivered = res.ok;
-    if (!res.ok) console.warn("Formspree responded with status", res.status);
+    const j = await res.json().catch(() => ({}));
+    delivered = res.ok && j && j.ok === true;
+    if (!delivered) console.warn("Lead endpoint responded", res.status, j);
   } catch (err) {
-    console.warn("Formspree error:", err);
+    console.warn("Lead endpoint error:", err);
   }
 
   // Never show "Sent" if it wasn't. Let them retry or reach a human.
