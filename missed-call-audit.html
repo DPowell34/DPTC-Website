@@ -611,6 +611,18 @@ $("capture").addEventListener("submit", async e=>{
     return;
   }
 
+  // ── Conversion tracking: the primary lead event. Mark `generate_lead` as a Key Event in
+  //    GA4 (Admin → Events), then import it into Google Ads as a conversion. Value = the
+  //    high end of the caller's own leak estimate, so Ads can optimize toward bigger shops. ──
+  try {
+    var conv = { form: 'missed-call-audit', trade: (payload.trade_label || payload.trade || ''),
+                 value: (payload.monthly_value_high || 0), currency: 'USD' };
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', conv);
+    (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: 'generate_lead' }, conv));
+    // Once the Google Ads account exists, set the conversion ID/label and uncomment:
+    // if (typeof gtag === 'function') gtag('event','conversion',{ send_to:'AW-XXXXXXXXX/xxxxxxxxxxxx', value:conv.value, currency:'USD' });
+  } catch (e) {}
+
   $("bookBtn").href = BOOKING_URL;
   $("confText").textContent = ($("textme").checked && $("phone").value) ? " (and your texts)" : "";
   $("capture").style.display = "none";
