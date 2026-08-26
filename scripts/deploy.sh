@@ -10,11 +10,6 @@
 #   scripts/deploy.sh --no-push  # deploy whatever is already on main
 set -euo pipefail
 
-# On Git-Bash (Windows/MSYS), bare /opt/... args get rewritten to C:\Program Files\Git\opt\...
-# before reaching the AWS CLI. Disable that path conversion (no-op on Linux/macOS/WSL).
-export MSYS_NO_PATHCONV=1
-export MSYS2_ARG_CONV_EXCL='*'
-
 INSTANCE=i-088a1050030cac14d
 REGION=us-east-2
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -25,7 +20,9 @@ if [ "${1:-}" != "--no-push" ]; then
 fi
 
 echo "-> triggering box deploy (SSM)"
-CMD=$(aws ssm send-command \
+# MSYS_NO_PATHCONV is set ONLY on this call so Git-Bash (Windows) doesn't rewrite the
+# /opt/... path into C:\...; setting it globally would break git's own path handling.
+CMD=$(MSYS_NO_PATHCONV=1 aws ssm send-command \
   --instance-ids "$INSTANCE" --region "$REGION" \
   --document-name AWS-RunShellScript \
   --parameters commands=/opt/deploy-dpowelltc.sh \
