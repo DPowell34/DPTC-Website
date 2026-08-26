@@ -10,6 +10,11 @@
 #   scripts/deploy.sh --no-push  # deploy whatever is already on main
 set -euo pipefail
 
+# On Git-Bash (Windows/MSYS), bare /opt/... args get rewritten to C:\Program Files\Git\opt\...
+# before reaching the AWS CLI. Disable that path conversion (no-op on Linux/macOS/WSL).
+export MSYS_NO_PATHCONV=1
+export MSYS2_ARG_CONV_EXCL='*'
+
 INSTANCE=i-088a1050030cac14d
 REGION=us-east-2
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
